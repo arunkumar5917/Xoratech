@@ -35,12 +35,12 @@ create table if not exists public.applications (
 create table if not exists public.enquiries (
   id uuid primary key default gen_random_uuid(),
   name text not null,
-  business_name text not null,
+  business_name text default '',
   email text not null,
   phone text not null,
-  service text not null,
+  service text not null default 'General Inquiry',
   package text,
-  budget text not null,
+  budget text default '',
   message text not null,
   status text not null default 'new',
   created_at timestamptz not null default now()
