@@ -157,16 +157,16 @@ export default function HomePage() {
         <div className="container-x relative">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="text-center lg:text-left">
-              <h1 className="font-display font-bold leading-tight text-navy-950 dark:text-white">
-                <span className="block text-4xl sm:text-5xl lg:text-6xl text-navy-950 dark:text-white">
+              <h1 className="font-display font-bold leading-tight text-black">
+                <span className="block text-4xl sm:text-5xl lg:text-6xl text-black">
                   Start With Skills.
                 </span>
-                <span className="mt-2 block bg-xora-gradient bg-clip-text text-transparent text-4xl sm:text-5xl lg:text-6xl">
+                <span className="mt-2 block text-black text-4xl sm:text-5xl lg:text-6xl">
                   Finish With Success.
                 </span>
-                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-navy-950 dark:text-white">
+                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-black">
                   Your Future Starts at{" "}
-                  <span className="bg-xora-gradient bg-clip-text text-transparent">XORA</span>
+                  <span className="text-black font-black">XORA</span>
                 </span>
               </h1>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">

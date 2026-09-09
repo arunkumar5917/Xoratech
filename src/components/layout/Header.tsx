@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Award, ArrowRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
@@ -40,8 +39,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b border-navy-50/80 bg-white/80 backdrop-blur-xl transition-all duration-300 dark:border-navy-800/80 dark:bg-navy-950/80",
-        scrolled && "shadow-sm dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]"
+        "fixed inset-x-0 top-0 z-50 border-b border-navy-100/80 bg-white/85 backdrop-blur-xl transition-all duration-300",
+        scrolled && "shadow-sm"
       )}
     >
       <div className="container-x">
@@ -60,8 +59,8 @@ export function Header() {
                     className={cn(
                       "relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
                       active
-                        ? "text-xora-600 bg-xora-50 dark:bg-xora-950/70 dark:text-xora-400"
-                        : "text-navy-600 hover:text-navy-900 hover:bg-navy-50 dark:text-navy-300 dark:hover:text-white dark:hover:bg-navy-900/60"
+                        ? "text-xora-600 bg-xora-50"
+                        : "text-navy-600 hover:text-navy-900 hover:bg-navy-50"
                     )}
                   >
                     {item.label}
@@ -71,16 +70,15 @@ export function Header() {
             })}
           </ul>
 
-          {/* Desktop CTA & Theme Switcher */}
+          {/* Desktop CTA */}
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/verify-certificate"
-              className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50 dark:text-navy-300 dark:hover:bg-navy-900 dark:hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50"
             >
               <Award className="h-4 w-4" />
               Verify Certificate
             </Link>
-            <ThemeToggle />
             <Link
               href="/internships/apply"
               className="btn-primary !px-4 !py-2.5 !text-sm"
@@ -90,11 +88,10 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Theme Toggle & Menu Button */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
             <button
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-navy-700 transition-colors hover:bg-navy-50 dark:text-navy-200 dark:hover:bg-navy-900"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-navy-700 transition-colors hover:bg-navy-50"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
