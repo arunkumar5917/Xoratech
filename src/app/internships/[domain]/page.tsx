@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { domains } from "@/data/domains";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Clock, ArrowRight } from "lucide-react";
@@ -30,7 +31,7 @@ export default async function DomainDetailPage({ params }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 pb-12 lg:pt-36 lg:pb-16">
         <div className="absolute inset-0 grid-light opacity-60" />
         <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-xora-500/10 blur-3xl" />
         <div className="container-x relative">
@@ -59,8 +60,21 @@ export default async function DomainDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-white pb-20 lg:pb-28">
         <div className="container-x">
+          {/* Domain Featured Hero Banner */}
+          <div className="relative mb-12 aspect-[21/9] w-full overflow-hidden rounded-3xl border border-navy-50 bg-navy-950 shadow-card">
+            <Image
+              src={domain.image}
+              alt={domain.title}
+              fill
+              priority
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+          </div>
+
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <h2 className="font-display text-2xl font-bold text-navy-950">About This Domain</h2>

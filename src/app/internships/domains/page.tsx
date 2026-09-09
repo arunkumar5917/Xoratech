@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { domains } from "@/data/domains";
 import { ArrowRight } from "lucide-react";
 
@@ -28,34 +29,56 @@ export default function DomainsPage() {
 
       <section className="bg-white py-20 lg:py-28">
         <div className="container-x">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {domains.map((domain, idx) => (
               <Link
                 key={domain.slug}
                 href={`/internships/${domain.slug}`}
-                className="group flex flex-col rounded-2xl border border-navy-50 bg-white p-6 shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-navy-50 bg-white shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
               >
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl" role="img" aria-hidden="true">{domain.emoji}</span>
-                  <div className="flex-1">
-                    <span className="text-xs font-bold text-xora-500">
+                {/* Domain Thumbnail Image */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
+                  <Image
+                    src={domain.image}
+                    alt={domain.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                    <span className="rounded-md bg-white/20 backdrop-blur-md px-2.5 py-1 text-xs font-semibold text-white">
                       Domain {String(idx + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-display text-xl font-bold text-navy-950">{domain.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-navy-500">{domain.description}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {domain.skills.map((skill) => (
-                        <span key={skill} className="rounded-md bg-navy-50 px-2 py-0.5 text-[11px] font-medium text-navy-600">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="text-xs font-medium text-navy-400">{domain.duration}</span>
-                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600">
-                        View Details <ArrowRight className="h-3 w-3" />
+                    <span className="text-xl" role="img" aria-hidden="true">
+                      {domain.emoji}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Domain Details */}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-display text-xl font-bold text-navy-950 group-hover:text-xora-600 transition-colors">
+                    {domain.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-500">
+                    {domain.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {domain.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md bg-navy-50 px-2.5 py-1 text-[11px] font-medium text-navy-600"
+                      >
+                        {skill}
                       </span>
-                    </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 flex items-center justify-between border-t border-navy-50 pt-4">
+                    <span className="text-xs font-medium text-navy-400">{domain.duration}</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform">
+                      View Details <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
                   </div>
                 </div>
               </Link>

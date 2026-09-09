@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { LogoSvg } from "@/components/Logo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -329,19 +330,35 @@ export default function HomePage() {
             title="Internship Domains"
             subtitle="Practical, project-based internships across 10 in-demand domains."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {domains.slice(0, 10).map((domain) => (
               <Link
                 key={domain.slug}
                 href={`/internships/${domain.slug}`}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-navy-50 bg-white p-6 text-center shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-navy-50 bg-white shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
               >
-                <span className="text-2xl" role="img" aria-hidden="true">{domain.emoji}</span>
-                <h3 className="text-sm font-semibold text-navy-900">{domain.title}</h3>
-                <span className="text-xs text-navy-400">{domain.duration}</span>
-                <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-xora-600 opacity-0 transition-opacity group-hover:opacity-100">
-                  View Details <ArrowRight className="h-3 w-3" />
-                </span>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-950">
+                  <Image
+                    src={domain.image}
+                    alt={domain.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+                  <span className="absolute bottom-2 right-2 text-base" role="img" aria-hidden="true">
+                    {domain.emoji}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-4 text-center">
+                  <h3 className="text-sm font-bold text-navy-900 group-hover:text-xora-600 transition-colors">
+                    {domain.title}
+                  </h3>
+                  <span className="mt-1 text-xs text-navy-400">{domain.duration}</span>
+                  <span className="mt-3 inline-flex items-center justify-center gap-1 text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform">
+                    View Details <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
