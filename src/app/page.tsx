@@ -304,7 +304,7 @@ export default function HomePage() {
             {services.slice(0, 6).map((service) => (
               <Link
                 key={service.slug}
-                href={`/business#${service.slug}`}
+                href="/business#selection-flow"
                 className="group flex flex-col overflow-hidden rounded-3xl border border-navy-100 bg-white/85 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-xora-300"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
@@ -344,7 +344,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Button href="/business#services" variant="outline">View All Services</Button>
+            <Button href="/business#selection-flow" variant="outline">View All Services</Button>
           </div>
         </div>
       </section>

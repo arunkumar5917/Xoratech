@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { services } from "@/data/services";
 import { packages } from "@/data/packages";
 import {
   Phone,
@@ -15,9 +13,9 @@ import {
   ShieldCheck,
   Rocket,
   LifeBuoy,
-  ArrowRight,
 } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/utils";
+import { BusinessSelectionWizard } from "@/components/business/BusinessSelectionWizard";
 
 export const metadata: Metadata = {
   title: "Business & Digital Services",
@@ -41,8 +39,6 @@ const businessWorkflow = [
   { icon: Rocket, step: "06", title: "Launch" },
   { icon: LifeBuoy, step: "07", title: "Support" },
 ];
-
-import { BusinessSelectionWizard } from "@/components/business/BusinessSelectionWizard";
 
 export default function BusinessPage() {
   return (
@@ -68,11 +64,11 @@ export default function BusinessPage() {
               <Button href="#selection-flow" variant="primary">
                 Start 3-Step Selection
               </Button>
-              <Button href="#services" variant="outline">
-                Explore Services
-              </Button>
-              <Button href="#packages" variant="navy">
+              <Button href="#packages" variant="outline">
                 Website Packages
+              </Button>
+              <Button href="#process" variant="navy">
+                Workflow Process
               </Button>
             </div>
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -90,7 +86,7 @@ export default function BusinessPage() {
       </section>
 
       {/* 3-STEP SELECTION & ENQUIRY WIZARD */}
-      <section className="py-12 lg:py-16">
+      <section id="selection-flow" className="scroll-mt-20 py-12 lg:py-16">
         <div className="container-x">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="section-label">Interactive Flow</span>
@@ -104,79 +100,6 @@ export default function BusinessPage() {
 
           <div className="max-w-5xl mx-auto">
             <BusinessSelectionWizard />
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="scroll-mt-20 py-20 lg:py-28">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Our Digital Services"
-            subtitle="End-to-end technology and design services tailored to meet your business goals."
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.slug}
-                id={service.slug}
-                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-navy-100 bg-white/85 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-xora-300"
-              >
-                {/* Service Image Banner */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white">
-                      <service.icon className="h-4 w-4" />
-                    </span>
-                    <span className="rounded-md bg-white/20 backdrop-blur-md px-2.5 py-0.5 text-[11px] font-semibold text-white">
-                      Service
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-navy-950 group-hover:text-xora-600 transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                      {service.description}
-                    </p>
-                    <ul className="mt-5 space-y-2 border-t border-navy-50 pt-4">
-                      {service.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex items-center gap-2 text-xs font-medium text-navy-700"
-                        >
-                          <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-xora-500" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-navy-50">
-                    <Button
-                      href={`/business/contact?service=${service.slug}`}
-                      variant="outline"
-                      className="w-full !py-2 !text-xs justify-center"
-                    >
-                      Enquire for {service.title}
-                      <ArrowRight className="h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
