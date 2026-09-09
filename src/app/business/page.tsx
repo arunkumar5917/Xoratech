@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { services } from "@/data/services";
@@ -120,44 +121,59 @@ export default function BusinessPage() {
               <div
                 key={service.slug}
                 id={service.slug}
-                className="group flex flex-col justify-between rounded-3xl border border-navy-100 bg-white/85 p-6 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-xora-300"
+                className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-navy-100 bg-white/85 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-xora-300"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
-                      <service.icon className="h-6 w-6" />
+                {/* Service Image Banner */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white">
+                      <service.icon className="h-4 w-4" />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-navy-400">
+                    <span className="rounded-md bg-white/20 backdrop-blur-md px-2.5 py-0.5 text-[11px] font-semibold text-white">
                       Service
                     </span>
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-bold text-navy-950 group-hover:text-xora-600 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy-600">
-                    {service.description}
-                  </p>
-                  <ul className="mt-5 space-y-2 border-t border-navy-50 pt-4">
-                    {service.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex items-center gap-2 text-xs font-medium text-navy-700"
-                      >
-                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-xora-500" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-                <div className="mt-6 pt-4 border-t border-navy-50">
-                  <Button
-                    href={`/business/contact?service=${service.slug}`}
-                    variant="outline"
-                    className="w-full !py-2 !text-xs justify-center"
-                  >
-                    Enquire for {service.title}
-                    <ArrowRight className="h-3 w-3" />
-                  </Button>
+
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-navy-950 group-hover:text-xora-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-navy-600">
+                      {service.description}
+                    </p>
+                    <ul className="mt-5 space-y-2 border-t border-navy-50 pt-4">
+                      {service.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-center gap-2 text-xs font-medium text-navy-700"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-xora-500" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-navy-50">
+                    <Button
+                      href={`/business/contact?service=${service.slug}`}
+                      variant="outline"
+                      className="w-full !py-2 !text-xs justify-center"
+                    >
+                      Enquire for {service.title}
+                      <ArrowRight className="h-3 w-3" />
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}

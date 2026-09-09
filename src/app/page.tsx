@@ -300,19 +300,45 @@ export default function HomePage() {
             title="Digital Services for Your Business"
             subtitle="Everything you need to build, grow and manage your digital presence."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service) => (
               <Link
                 key={service.slug}
                 href={`/business#${service.slug}`}
-                className="group flex items-start gap-4 rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5 dark:border-navy-800/80 dark:bg-navy-900/80"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-navy-100 bg-white/85 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 hover:border-xora-300"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white dark:bg-navy-800 dark:text-xora-400">
-                  <service.icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <h3 className="font-display text-base font-semibold text-navy-900 dark:text-white">{service.title}</h3>
-                  <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{service.description}</p>
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white">
+                      <service.icon className="h-4 w-4" />
+                    </span>
+                    <span className="rounded-md bg-white/20 backdrop-blur-md px-2 py-0.5 text-[10px] font-semibold text-white">
+                      Digital Service
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display text-base font-bold text-navy-900 group-hover:text-xora-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-navy-600">
+                      {service.description}
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-navy-50 pt-3">
+                    <span className="text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+                      Explore Service <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}

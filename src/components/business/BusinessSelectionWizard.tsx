@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { services } from "@/data/services";
 import { packages } from "@/data/packages";
 import { Button } from "@/components/ui/Button";
@@ -178,39 +179,46 @@ export function BusinessSelectionWizard() {
                   onClick={() => {
                     setSelectedService(service.title);
                   }}
-                  className={`group relative flex flex-col items-start rounded-2xl border p-5 text-left transition-all duration-200 ${
+                  className={`group relative flex flex-col items-start overflow-hidden rounded-2xl border text-left transition-all duration-200 ${
                     isSelected
                       ? "border-xora-500 bg-xora-50/70 ring-2 ring-xora-500/20 shadow-md"
                       : "border-navy-100 bg-white hover:border-navy-300 hover:shadow-sm"
                   }`}
                 >
-                  <div className="flex w-full items-center justify-between">
-                    <span
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${
-                        isSelected
-                          ? "bg-xora-gradient text-white"
-                          : "bg-navy-50 text-navy-700 group-hover:bg-xora-50 group-hover:text-xora-600"
-                      }`}
-                    >
-                      <service.icon className="h-5 w-5" />
-                    </span>
-                    <span
-                      className={`flex h-6 w-6 items-center justify-center rounded-full border text-xs font-bold transition-all ${
-                        isSelected
-                          ? "border-xora-500 bg-xora-500 text-white"
-                          : "border-navy-200 text-transparent"
-                      }`}
-                    >
-                      ✓
-                    </span>
+                  {/* Thumbnail Image */}
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/20 backdrop-blur-md text-white">
+                        <service.icon className="h-3.5 w-3.5" />
+                      </span>
+                      <span
+                        className={`flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-bold transition-all ${
+                          isSelected
+                            ? "border-xora-500 bg-xora-500 text-white"
+                            : "border-white/60 bg-black/30 text-transparent"
+                        }`}
+                      >
+                        ✓
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="mt-4 font-display text-base font-bold text-navy-950">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-navy-600">
-                    {service.description}
-                  </p>
+                  <div className="p-4 w-full">
+                    <h3 className="font-display text-sm font-bold text-navy-950 group-hover:text-xora-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-navy-600">
+                      {service.description}
+                    </p>
+                  </div>
                 </button>
               );
             })}
