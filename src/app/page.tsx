@@ -161,8 +161,8 @@ export default function HomePage() {
                 <span className="block text-4xl sm:text-5xl lg:text-6xl text-black">
                   Start With Skills.
                 </span>
-                <span className="mt-2 block text-black text-4xl sm:text-5xl lg:text-6xl">
-                  Finish With Success.
+                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-black">
+                  Finish With <span className="text-xora-500">Success.</span>
                 </span>
                 <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-black">
                   Your Future Starts at{" "}
