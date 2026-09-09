@@ -63,7 +63,7 @@ export default async function DomainDetailPage({ params }: Props) {
       <section className="bg-white pb-20 lg:pb-28">
         <div className="container-x">
           {/* Domain Featured Hero Banner */}
-          <div className="relative mb-12 aspect-[21/9] w-full overflow-hidden rounded-3xl border border-navy-50 bg-navy-950 shadow-card">
+          <div className="relative mb-10 h-52 sm:h-64 lg:h-72 w-full overflow-hidden rounded-2xl border border-navy-50 bg-navy-950 shadow-card">
             <Image
               src={domain.image}
               alt={domain.title}
@@ -72,7 +72,7 @@ export default async function DomainDetailPage({ params }: Props) {
               sizes="(max-width: 1280px) 100vw, 1200px"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/10 to-transparent" />
           </div>
 
           <div className="grid gap-10 lg:grid-cols-3">
