@@ -35,7 +35,12 @@ export default function StudentRegisterPage() {
 
     setLoading(true);
     try {
-      const { createClient } = await import("@/lib/supabase/client");
+      const { createClient, isSupabaseConfigured } = await import("@/lib/supabase/client");
+      if (!isSupabaseConfigured) {
+        // Demo mode: allow register and redirect to student dashboard
+        window.location.href = "/student/dashboard";
+        return;
+      }
       const supabase = createClient();
       const { error } = await supabase.auth.signUp({
         email: formData.get("email")!.toString(),

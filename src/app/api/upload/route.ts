@@ -6,13 +6,6 @@ export const maxDuration = 60;
 export async function POST(request: NextRequest) {
   const { isSupabaseConfigured } = await import("@/lib/supabase/server");
 
-  if (!isSupabaseConfigured) {
-    return Response.json(
-      { error: "Storage is not configured. Add Supabase environment variables." },
-      { status: 503 }
-    );
-  }
-
   const formData = await request.formData();
   const file = formData.get("file");
   const applicationId = formData.get("application_id")?.toString() || `unlinked-${Date.now()}`;
@@ -28,6 +21,13 @@ export async function POST(request: NextRequest) {
   }
   if (file.size > 2 * 1024 * 1024) {
     return Response.json({ error: "File must be under 2MB." }, { status: 400 });
+  }
+
+  if (!isSupabaseConfigured) {
+    return Response.json(
+      { url: `/demo-uploads/${file.name}`, path: `demo/${file.name}` },
+      { status: 200 }
+    );
   }
 
   const client = createServerClient();

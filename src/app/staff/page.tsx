@@ -30,7 +30,11 @@ export default function StaffPage() {
 
     setLoading(true);
     try {
-      const { createClient } = await import("@/lib/supabase/client");
+      const { createClient, isSupabaseConfigured } = await import("@/lib/supabase/client");
+      if (!isSupabaseConfigured) {
+        window.location.href = "/student/dashboard";
+        return;
+      }
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithPassword({
         email: formData.get("email")!.toString(),

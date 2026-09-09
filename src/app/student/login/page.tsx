@@ -32,7 +32,12 @@ export default function StudentLoginPage() {
 
     setLoading(true);
     try {
-      const { createClient } = await import("@/lib/supabase/client");
+      const { createClient, isSupabaseConfigured } = await import("@/lib/supabase/client");
+      if (!isSupabaseConfigured) {
+        // Demo mode: allow sign in and redirect to student dashboard
+        window.location.href = "/student/dashboard";
+        return;
+      }
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithPassword({
         email: formData.get("email")!.toString(),
