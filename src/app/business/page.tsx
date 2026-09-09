@@ -41,11 +41,13 @@ const businessWorkflow = [
   { icon: LifeBuoy, step: "07", title: "Support" },
 ];
 
+import { BusinessSelectionWizard } from "@/components/business/BusinessSelectionWizard";
+
 export default function BusinessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-20">
         <div className="absolute inset-0 grid-light opacity-40" />
         <div className="container-x relative">
           <div className="mx-auto max-w-3xl text-center">
@@ -59,17 +61,17 @@ export default function BusinessPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              From high-converting websites and cloud applications to AI systems and branding — everything you need to build, scale, and automate your business.
+              From high-converting websites and cloud applications to AI systems and branding — follow our simple 3-step selection flow below to get started.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button href="#services" variant="primary">
+              <Button href="#selection-flow" variant="primary">
+                Start 3-Step Selection
+              </Button>
+              <Button href="#services" variant="outline">
                 Explore Services
               </Button>
-              <Button href="#packages" variant="outline">
-                View Packages
-              </Button>
-              <Button href="/business/contact" variant="navy">
-                Request a Quote
+              <Button href="#packages" variant="navy">
+                Website Packages
               </Button>
             </div>
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -82,6 +84,25 @@ export default function BusinessPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-STEP SELECTION & ENQUIRY WIZARD */}
+      <section className="py-12 lg:py-16">
+        <div className="container-x">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="section-label">Interactive Flow</span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-navy-950 sm:text-4xl">
+              Step 1. Select Service &bull; Step 2. Select Package &bull; Step 3. Enquire
+            </h2>
+            <p className="mt-3 text-sm text-navy-600">
+              Customize your solution in three quick steps and receive an instant quotation proposal.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <BusinessSelectionWizard />
           </div>
         </div>
       </section>
