@@ -64,28 +64,28 @@ function ContactContent() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-transparent pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-transparent pt-24 pb-8 lg:pt-28 lg:pb-10">
         <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">Get in Touch</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
+            <h1 className="mt-4 font-display text-3xl font-bold text-navy-950 dark:text-white sm:text-4xl">
               Enquire About Your Package
             </h1>
-            <p className="mt-6 text-lg text-navy-600 dark:text-navy-300">
+            <p className="mt-3 text-base text-navy-600 dark:text-navy-300">
               Tell us about your project and we&apos;ll get back to you with a tailored plan.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-transparent py-20 lg:py-28">
+      <section className="bg-transparent py-8 lg:py-12">
         <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-5">
+          <div className="grid gap-8 lg:grid-cols-5">
             {/* Form */}
-            <div className="lg:col-span-3 rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-6 sm:p-10 shadow-card">
+            <div className="lg:col-span-3 rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 sm:p-8 shadow-card">
               <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white">Send an Enquiry</h2>
-              <p className="mt-2 text-sm text-navy-600 dark:text-navy-400">
+              <p className="mt-1.5 text-xs sm:text-sm text-navy-600 dark:text-navy-400">
                 Fill in the details below and our team will contact you within 24 hours.
               </p>
 

@@ -22,7 +22,7 @@ export default function InternshipsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-transparent pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden bg-transparent pt-24 pb-10 lg:pt-28 lg:pb-14">
         <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
         <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-xora-500/10 blur-3xl pointer-events-none" />
         <div className="container-x relative">
@@ -30,17 +30,17 @@ export default function InternshipsPage() {
             <span className="section-label">
               For Students
             </span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
+            <h1 className="mt-4 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Start Your Internship Journey
             </h1>
-            <p className="mt-3 font-display text-lg text-xora-600 dark:text-xora-400">
+            <p className="mt-2 font-display text-base sm:text-lg text-xora-600 dark:text-xora-400">
               Learn. Build. Get Mentored. Get Certified.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-navy-600 dark:text-navy-300">
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-navy-600 dark:text-navy-300">
               Gain practical, project-based experience in your chosen technology domain with expert mentorship
               and earn a verified certificate.
             </p>
-            <div className="mt-8 flex justify-center gap-3">
+            <div className="mt-6 flex justify-center gap-3">
               <Button href="/internships/domains" variant="primary">
                 Explore Domains
               </Button>
@@ -48,11 +48,11 @@ export default function InternshipsPage() {
                 Apply Now
               </Button>
             </div>
-            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {highlights.map((h) => (
                 <div
                   key={h.label}
-                  className="rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card text-left"
+                  className="rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-4 shadow-card text-left"
                 >
                   <h.icon className="h-5 w-5 text-xora-600 dark:text-xora-400" />
                   <p className="mt-2 text-sm font-semibold text-navy-950 dark:text-white">{h.label}</p>
@@ -65,14 +65,14 @@ export default function InternshipsPage() {
       </section>
 
       {/* Domains Grid */}
-      <section className="bg-transparent py-20 lg:py-28">
+      <section className="bg-transparent py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="Domains"
             title="Explore Internship Domains"
             subtitle="Choose from 10 in-demand technology domains."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {domains.map((domain) => (
               <Link
                 key={domain.slug}
@@ -98,14 +98,14 @@ export default function InternshipsPage() {
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-display text-lg font-bold text-navy-950 dark:text-white group-hover:text-xora-600 dark:group-hover:text-xora-400 transition-colors">
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="font-display text-base font-bold text-navy-950 dark:text-white group-hover:text-xora-600 dark:group-hover:text-xora-400 transition-colors">
                     {domain.title}
                   </h3>
-                  <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-navy-600 dark:text-navy-400">
+                  <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-navy-600 dark:text-navy-400">
                     {domain.description}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-1">
+                  <div className="mt-2.5 flex flex-wrap gap-1">
                     {domain.skills.slice(0, 3).map((skill) => (
                       <span
                         key={skill}
@@ -115,7 +115,7 @@ export default function InternshipsPage() {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-navy-100 dark:border-navy-800 pt-3">
+                  <div className="mt-3 flex items-center justify-between border-t border-navy-100 dark:border-navy-800 pt-2.5">
                     <span className="text-xs font-medium text-navy-400 dark:text-navy-500">
                       View details
                     </span>
@@ -131,16 +131,16 @@ export default function InternshipsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-transparent py-16 lg:py-20">
+      <section className="bg-transparent py-10 lg:py-14">
         <div className="container-x text-center">
-          <div className="rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/60 dark:bg-navy-900/60 backdrop-blur-md p-10 max-w-3xl mx-auto shadow-card">
+          <div className="rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/60 dark:bg-navy-900/60 backdrop-blur-md p-8 max-w-3xl mx-auto shadow-card">
             <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white sm:text-3xl">
               Ready to Begin?
             </h2>
-            <p className="mt-3 text-sm text-navy-600 dark:text-navy-300">
+            <p className="mt-2 text-sm text-navy-600 dark:text-navy-300">
               Apply now and start building real projects with expert guidance.
             </p>
-            <div className="mt-6 flex justify-center gap-3">
+            <div className="mt-5 flex justify-center gap-3">
               <Button href="/internships/apply" variant="primary">
                 Apply Now
               </Button>

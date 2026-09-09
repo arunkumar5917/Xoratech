@@ -152,10 +152,10 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative overflow-hidden pt-24 pb-12 lg:pt-28 lg:pb-16">
         <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <div className="text-center lg:text-left">
               <h1 className="font-display font-bold leading-tight text-black">
                 <span className="block text-4xl sm:text-5xl lg:text-6xl text-black">
@@ -172,7 +172,7 @@ export default function HomePage() {
                   </span>
                 </span>
               </h1>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                 <Button href="/business" variant="primary" className="w-full sm:w-auto">
                   Explore Business Solutions
                 </Button>
@@ -187,14 +187,14 @@ export default function HomePage() {
       </section>
 
       {/* TWO EXPERIENCES */}
-      <section id="journey" className="py-20 lg:py-28">
+      <section id="journey" className="py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="Two Experiences"
             title="Choose Your Journey"
             subtitle="Whether you want to grow your business or build your career, Xora has a clear path for you."
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">
+          <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:gap-8">
             <ExperienceCard
               icon={Building2}
               title="Business Solutions"
@@ -224,21 +224,21 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS — BUSINESS */}
-      <section className="py-20 lg:py-28">
+      <section className="py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="For Businesses"
             title="Our Process"
             subtitle="From your first requirement to launch and beyond — a clear, reliable journey."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
             {businessWorkflow.map((item) => (
-              <div key={item.title} className="relative flex flex-col items-center rounded-2xl border border-navy-50 bg-white/80 p-5 text-center shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-950 text-xora-400 dark:bg-navy-800">
+              <div key={item.title} className="relative flex flex-col items-center rounded-2xl border border-navy-50 bg-white/80 p-4 text-center shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-950 text-xora-400 dark:bg-navy-800">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <span className="mt-3 text-xs font-bold text-xora-500 dark:text-xora-400">{item.step}</span>
-                <h3 className="mt-1 text-sm font-semibold text-navy-900 dark:text-white">{item.title}</h3>
+                <span className="mt-2 text-xs font-bold text-xora-500 dark:text-xora-400">{item.step}</span>
+                <h3 className="mt-0.5 text-xs font-semibold text-navy-900 dark:text-white">{item.title}</h3>
               </div>
             ))}
           </div>
@@ -246,21 +246,21 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS — INTERNSHIP */}
-      <section className="py-20 lg:py-28">
+      <section className="py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="For Students"
             title="Your Internship Journey"
             subtitle="A guided path from application to certification."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
             {internshipWorkflow.map((item) => (
-              <div key={item.title} className="relative flex flex-col items-center rounded-2xl bg-navy-950 p-5 text-center shadow-card transition-transform duration-200 hover:-translate-y-1 dark:bg-navy-900/90 dark:border dark:border-navy-800/80">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-xora-400">
+              <div key={item.title} className="relative flex flex-col items-center rounded-2xl bg-navy-950 p-4 text-center shadow-card transition-transform duration-200 hover:-translate-y-1 dark:bg-navy-900/90 dark:border dark:border-navy-800/80">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-xora-400">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <span className="mt-3 text-xs font-bold text-xora-400">{item.step}</span>
-                <h3 className="mt-1 text-sm font-semibold text-white">{item.title}</h3>
+                <span className="mt-2 text-xs font-bold text-xora-400">{item.step}</span>
+                <h3 className="mt-0.5 text-xs font-semibold text-white">{item.title}</h3>
               </div>
             ))}
           </div>
@@ -268,24 +268,24 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE XORA */}
-      <section id="why" className="py-20 lg:py-28">
+      <section id="why" className="py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="Why Xora"
             title="Why Choose Xora"
             subtitle="A technology partner focused on real results for businesses and real growth for students."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80"
+                className="group rounded-2xl border border-navy-50 bg-white/80 p-5 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-xora-gradient text-white shadow-glow">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-xora-gradient text-white shadow-glow">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-navy-950 dark:text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{item.desc}</p>
+                <h3 className="mt-3 font-display text-base font-semibold text-navy-950 dark:text-white">{item.title}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-navy-500 dark:text-navy-400">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -293,14 +293,14 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="py-20 lg:py-28">
+      <section className="py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="What We Do"
             title="Digital Services for Your Business"
             subtitle="Everything you need to build, grow and manage your digital presence."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service) => (
               <Link
                 key={service.slug}
@@ -325,16 +325,16 @@ export default function HomePage() {
                     </span>
                   </div>
                 </div>
-                <div className="p-5 flex-1 flex flex-col justify-between">
+                <div className="p-4 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-display text-base font-bold text-navy-900 group-hover:text-xora-600 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-navy-600">
+                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-navy-600">
                       {service.description}
                     </p>
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-navy-50 pt-3">
+                  <div className="mt-3 flex items-center justify-between border-t border-navy-50 pt-2.5">
                     <span className="text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
                       Explore Service <ArrowRight className="h-3 w-3" />
                     </span>
@@ -343,21 +343,21 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Button href="/business#selection-flow" variant="outline">View All Services</Button>
           </div>
         </div>
       </section>
 
       {/* INTERNSHIP DOMAINS PREVIEW */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-white py-10 lg:py-14">
         <div className="container-x">
           <SectionHeading
             eyebrow="For Students"
             title="Internship Domains"
             subtitle="Practical, project-based internships across 10 in-demand domains."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {domains.slice(0, 10).map((domain) => (
               <Link
                 key={domain.slug}
@@ -377,47 +377,47 @@ export default function HomePage() {
                     {domain.emoji}
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-4 text-center">
-                  <h3 className="text-sm font-bold text-navy-900 group-hover:text-xora-600 transition-colors">
+                <div className="flex flex-1 flex-col p-3.5 text-center">
+                  <h3 className="text-xs sm:text-sm font-bold text-navy-900 group-hover:text-xora-600 transition-colors">
                     {domain.title}
                   </h3>
-                  <span className="mt-1 text-xs text-navy-400">{domain.duration}</span>
-                  <span className="mt-3 inline-flex items-center justify-center gap-1 text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform">
+                  <span className="mt-0.5 text-[11px] text-navy-400">{domain.duration}</span>
+                  <span className="mt-2 inline-flex items-center justify-center gap-1 text-xs font-semibold text-xora-600 group-hover:translate-x-0.5 transition-transform">
                     View Details <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Button href="/internships/domains" variant="outline">Explore All Domains</Button>
           </div>
         </div>
       </section>
 
       {/* CTA BANNER */}
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-white py-10 lg:py-14">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl bg-navy-gradient p-10 text-center sm:p-16">
+          <div className="relative overflow-hidden rounded-3xl bg-navy-gradient p-8 text-center sm:p-12">
             <div className="absolute inset-0 hero-grid opacity-30" />
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-xora-500/20 blur-3xl" />
             <div className="relative">
-              <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold text-white sm:text-4xl">
+              <h2 className="mx-auto max-w-2xl font-display text-2xl font-bold text-white sm:text-3xl">
                 Ready to Start Your Journey With Xora?
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base text-navy-200">
+              <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-navy-200">
                 Grow your business with modern digital solutions, or launch your career with a
                 practical internship.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button href="/business/contact" variant="white">Request a Quote</Button>
                 <Button href="/internships/apply" variant="outline-light">Apply for Internship</Button>
               </div>
-              <div className="mt-8 flex items-center justify-center gap-3 text-sm text-navy-200">
+              <div className="mt-6 flex items-center justify-center gap-3 text-xs sm:text-sm text-navy-200">
                 <Phone className="h-4 w-4 text-xora-400" />
                 <a href="tel:+919894279003" className="hover:text-white">+91 98942 79003</a>
                 <span className="text-navy-400">·</span>
-                <span>www.xoratechnologies.in</span>
+                <span>www.xoratech.in</span>
               </div>
             </div>
           </div>
