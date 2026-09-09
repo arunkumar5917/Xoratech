@@ -18,9 +18,6 @@ function ContactContent() {
   const selectedService = serviceParam
     ? services.find((s) => s.slug === serviceParam)?.title || serviceParam
     : "";
-  const selectedServiceObj = serviceParam
-    ? services.find((s) => s.slug === serviceParam)
-    : undefined;
   const selectedPackage = packageParam || "";
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -33,7 +30,6 @@ function ContactContent() {
     if (!data.get("email")?.toString().trim()) errs.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(data.get("email")!.toString())) errs.email = "Enter a valid email.";
     if (!data.get("phone")?.toString().trim()) errs.phone = "Phone number is required.";
-    if (!data.get("service")?.toString().trim()) errs.service = "Select a service.";
     if (!data.get("message")?.toString().trim()) errs.message = "Please describe your requirement.";
     return errs;
   };
@@ -51,7 +47,7 @@ function ContactContent() {
       business_name: formData.get("business_name")?.toString() || "",
       email: formData.get("email")!.toString(),
       phone: formData.get("phone")!.toString(),
-      service: formData.get("service")!.toString(),
+      service: formData.get("service")?.toString() || selectedService || "",
       package: formData.get("package")?.toString() || "",
       budget: formData.get("budget")?.toString() || "",
       message: formData.get("message")!.toString(),
@@ -124,6 +120,7 @@ function ContactContent() {
                 {status === "success" && <FormSuccess message={message} />}
                 {status === "error" && <FormError message={message} />}
 
+                <input type="hidden" name="service" value={selectedService} />
                 <input type="hidden" name="package" value={selectedPackage} />
 
                 <div className="grid gap-5 sm:grid-cols-2">
@@ -133,31 +130,6 @@ function ContactContent() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <FormField label="Email" name="email" type="email" placeholder="john@business.com" required error={errors.email} />
                   <FormField label="Phone" name="phone" type="tel" placeholder="+91 98765 43210" required error={errors.phone} />
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <FormField
-                    label="Required Service"
-                    name="service"
-                    options={services.map((s) => s.title)}
-                    value={selectedService}
-                    required
-                    error={errors.service}
-                  />
-                  {selectedServiceObj && (
-                    <div className="mt-2">
-                      <a
-                        href={`/business#${selectedServiceObj.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 dark:text-xora-400 underline underline-offset-2 hover:text-xora-700 dark:hover:text-xora-300"
-                      >
-                        View Details
-                      </a>
-                    </div>
-                  )}
-                  <FormField
-                    label="Estimated Budget"
-                    name="budget"
-                    options={["Under ₹5,000", "₹5,000 – ₹10,000", "₹10,000 – ₹25,000", "₹25,000 – ₹50,000", "Above ₹50,000"]}
-                  />
                 </div>
                 <FormField label="Tell us about your project" name="message" placeholder="Describe your requirements, goals and timeline..." required textarea error={errors.message} />
 
