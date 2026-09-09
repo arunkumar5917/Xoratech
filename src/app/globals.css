@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white text-navy-950 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-xora-500 text-white;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white shadow-card border border-navy-50;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-xora-500 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-xora-gradient text-white shadow-card hover:shadow-glow hover:-translate-y-0.5;
+  }
+
+  .btn-outline-light {
+    @apply btn border-2 border-white/30 text-white hover:border-xora-400 hover:bg-white/10;
+  }
+
+  .btn-outline-navy {
+    @apply btn border-2 border-navy-100 text-navy-900 hover:border-xora-500 hover:text-xora-600 bg-white;
+  }
+
+  .btn-navy {
+    @apply btn bg-navy-900 text-white hover:bg-navy-800 hover:-translate-y-0.5 shadow-card;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-navy-900;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-navy-100 bg-white px-4 py-3 text-sm text-navy-950 placeholder-navy-300 shadow-sm transition focus:border-xora-500 focus:ring-2 focus:ring-xora-500/30 focus:outline-none;
+  }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 rounded-full bg-xora-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-xora-600;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-xora-500;
+  }
+}
