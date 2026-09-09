@@ -12,22 +12,22 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">What We Do</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Our Digital Services
             </h1>
-            <p className="mt-6 text-lg text-navy-500">
+            <p className="mt-6 text-lg text-navy-500 dark:text-navy-400">
               Complete technology solutions to build, grow and maintain your digital presence.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-2">
             {services.map((service, idx) => {

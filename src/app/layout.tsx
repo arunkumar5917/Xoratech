@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ThreeDBackground } from "@/components/ui/ThreeDBackground";
 import { APP_NAME, WEBSITE_URL } from "@/lib/utils";
 
 const inter = Inter({
@@ -64,8 +65,28 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="flex min-h-screen flex-col">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="relative flex min-h-screen flex-col bg-white text-navy-950 antialiased selection:bg-xora-500 selection:text-white dark:bg-navy-950 dark:text-navy-50">
+        <ThreeDBackground />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

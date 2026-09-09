@@ -117,23 +117,23 @@ function ExperienceCard({
 }) {
   return (
     <div
-      className={`relative flex flex-col overflow-hidden rounded-3xl bg-white p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 sm:p-8`}
+      className={`relative flex flex-col overflow-hidden rounded-3xl border border-navy-50 bg-white/80 p-7 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 dark:border-navy-800/80 dark:bg-navy-900/80 sm:p-8`}
     >
       <div className={`absolute inset-x-0 top-0 h-1.5 ${tint}`} />
       <div className="flex items-center gap-3">
         <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${tint} ${accent}`}>
           <Icon className="h-6 w-6" />
         </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-navy-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy-600">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-navy-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy-600 dark:bg-navy-800 dark:text-navy-300">
           <BadgeIcon className="h-3.5 w-3.5" />
           {badge}
         </span>
       </div>
-      <h3 className="mt-5 font-display text-2xl font-bold text-navy-950">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-navy-500">{subtitle}</p>
+      <h3 className="mt-5 font-display text-2xl font-bold text-navy-950 dark:text-white">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{subtitle}</p>
       <ul className="mt-5 grid gap-2.5">
         {points.map((point) => (
-          <li key={point} className="flex items-center gap-2.5 text-sm text-navy-700">
+          <li key={point} className="flex items-center gap-2.5 text-sm text-navy-700 dark:text-navy-300">
             <CheckCircle2 className="h-4 w-4 shrink-0 text-xora-500" />
             {point}
           </li>
@@ -152,21 +152,19 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
-        <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-xora-500/10 blur-3xl" />
-        <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-navy-500/10 blur-3xl" />
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="text-center lg:text-left">
-              <h1 className="font-display font-bold leading-tight text-navy-950">
-                <span className="block text-black text-4xl sm:text-5xl lg:text-6xl">
+              <h1 className="font-display font-bold leading-tight text-navy-950 dark:text-white">
+                <span className="block text-4xl sm:text-5xl lg:text-6xl text-navy-950 dark:text-white">
                   Start With Skills.
                 </span>
                 <span className="mt-2 block bg-xora-gradient bg-clip-text text-transparent text-4xl sm:text-5xl lg:text-6xl">
                   Finish With Success.
                 </span>
-                <span className="mt-2 block text-black text-4xl sm:text-5xl lg:text-6xl">
+                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-navy-950 dark:text-white">
                   Your Future Starts at{" "}
                   <span className="bg-xora-gradient bg-clip-text text-transparent">XORA</span>
                 </span>
@@ -186,7 +184,7 @@ export default function HomePage() {
       </section>
 
       {/* TWO EXPERIENCES */}
-      <section id="journey" className="bg-white py-20 lg:py-28">
+      <section id="journey" className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="Two Experiences"
@@ -201,8 +199,8 @@ export default function HomePage() {
               points={businessPoints}
               ctaLabel="Explore Business"
               ctaHref="/business"
-              accent="text-navy-700"
-              tint="bg-navy-50"
+              accent="text-navy-700 dark:text-navy-300"
+              tint="bg-navy-50 dark:bg-navy-900/90"
               badge="For Businesses"
               badgeIcon={Briefcase}
             />
@@ -213,8 +211,8 @@ export default function HomePage() {
               points={studentPoints}
               ctaLabel="Explore Internships"
               ctaHref="/internships"
-              accent="text-xora-600"
-              tint="bg-xora-50"
+              accent="text-xora-600 dark:text-xora-400"
+              tint="bg-xora-50 dark:bg-xora-950/70"
               badge="For Students"
               badgeIcon={GraduationCap}
             />
@@ -223,7 +221,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS — BUSINESS */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="For Businesses"
@@ -232,12 +230,12 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
             {businessWorkflow.map((item) => (
-              <div key={item.title} className="relative flex flex-col items-center rounded-2xl bg-white p-5 text-center shadow-card border border-navy-50 transition-all duration-200 hover:shadow-card-hover">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-950 text-xora-400">
+              <div key={item.title} className="relative flex flex-col items-center rounded-2xl border border-navy-50 bg-white/80 p-5 text-center shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-950 text-xora-400 dark:bg-navy-800">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <span className="mt-3 text-xs font-bold text-xora-500">{item.step}</span>
-                <h3 className="mt-1 text-sm font-semibold text-navy-900">{item.title}</h3>
+                <span className="mt-3 text-xs font-bold text-xora-500 dark:text-xora-400">{item.step}</span>
+                <h3 className="mt-1 text-sm font-semibold text-navy-900 dark:text-white">{item.title}</h3>
               </div>
             ))}
           </div>
@@ -245,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS — INTERNSHIP */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="For Students"
@@ -254,7 +252,7 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
             {internshipWorkflow.map((item) => (
-              <div key={item.title} className="relative flex flex-col items-center rounded-2xl bg-navy-950 p-5 text-center shadow-card transition-transform duration-200 hover:-translate-y-1">
+              <div key={item.title} className="relative flex flex-col items-center rounded-2xl bg-navy-950 p-5 text-center shadow-card transition-transform duration-200 hover:-translate-y-1 dark:bg-navy-900/90 dark:border dark:border-navy-800/80">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-xora-400">
                   <item.icon className="h-5 w-5" />
                 </span>
@@ -267,7 +265,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE XORA */}
-      <section id="why" className="bg-white py-20 lg:py-28">
+      <section id="why" className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="Why Xora"
@@ -278,13 +276,13 @@ export default function HomePage() {
             {whyChoose.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-2xl border border-navy-50 bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover"
+                className="group rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-xora-gradient text-white shadow-glow">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-navy-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-500">{item.desc}</p>
+                <h3 className="mt-4 font-display text-lg font-semibold text-navy-950 dark:text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -292,7 +290,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="What We Do"
@@ -304,14 +302,14 @@ export default function HomePage() {
               <Link
                 key={service.slug}
                 href="/business/services"
-                className="group flex items-start gap-4 rounded-2xl border border-navy-50 bg-white p-6 shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5"
+                className="group flex items-start gap-4 rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5 dark:border-navy-800/80 dark:bg-navy-900/80"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white dark:bg-navy-800 dark:text-xora-400">
                   <service.icon className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="font-display text-base font-semibold text-navy-900">{service.title}</h3>
-                  <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-navy-500">{service.description}</p>
+                  <h3 className="font-display text-base font-semibold text-navy-900 dark:text-white">{service.title}</h3>
+                  <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{service.description}</p>
                 </div>
               </Link>
             ))}

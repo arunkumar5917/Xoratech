@@ -56,22 +56,24 @@ export default function StudentLoginPage() {
   };
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-white px-4 pt-20 pb-12">
+    <section className="flex min-h-screen items-center justify-center bg-transparent px-4 pt-20 pb-12">
       <div className="w-full max-w-md">
-        <div className="rounded-3xl border border-navy-50 bg-white p-8 shadow-card">
+        <div className="rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-8 shadow-card">
           <div className="flex justify-center">
-            <LogoSvg className="h-8" />
+            <span className="inline-flex items-center rounded-xl bg-white p-2">
+              <LogoSvg className="h-8" />
+            </span>
           </div>
-          <h1 className="mt-5 text-center font-display text-2xl font-bold text-navy-950">
+          <h1 className="mt-5 text-center font-display text-2xl font-bold text-navy-950 dark:text-white">
             Student Login
           </h1>
-          <p className="mt-2 text-center text-sm text-navy-500">
+          <p className="mt-2 text-center text-sm text-navy-600 dark:text-navy-400">
             Sign in to access your dashboard
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
             {generalError && (
-              <div className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+              <div className="rounded-xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/40 px-4 py-3 text-sm font-medium text-red-600 dark:text-red-400">
                 {generalError}
               </div>
             )}
@@ -95,7 +97,7 @@ export default function StudentLoginPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-10 text-navy-300 hover:text-navy-600"
+                className="absolute right-3 top-10 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300"
                 aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -107,11 +109,11 @@ export default function StudentLoginPage() {
             </Button>
           </form>
 
-          <div className="mt-6 flex flex-col items-center gap-2 text-sm text-navy-500">
-            <Link href="/student/register" className="font-medium text-xora-600 hover:underline">
+          <div className="mt-6 flex flex-col items-center gap-2 text-sm text-navy-600 dark:text-navy-400">
+            <Link href="/student/register" className="font-medium text-xora-600 dark:text-xora-400 hover:underline">
               Don&apos;t have an account? Register
             </Link>
-            <Link href="/internships/apply" className="text-navy-400 hover:text-navy-600">
+            <Link href="/internships/apply" className="text-navy-400 dark:text-navy-500 hover:text-navy-700 dark:hover:text-navy-300">
               Apply for an internship instead
             </Link>
           </div>

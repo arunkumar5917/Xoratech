@@ -53,22 +53,22 @@ export default function AdminPage() {
   };
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-white px-4">
+    <section className="flex min-h-screen items-center justify-center bg-transparent px-4">
       <div className="w-full max-w-md">
-        <div className="rounded-3xl border border-navy-50 bg-white p-8 shadow-card">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-950 text-xora-400">
+        <div className="rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-8 shadow-card">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-950 dark:bg-navy-800 text-xora-400 border border-navy-800 dark:border-navy-700 shadow-sm">
             <Shield className="h-7 w-7" />
           </div>
-          <h1 className="mt-5 text-center font-display text-2xl font-bold text-navy-950">
+          <h1 className="mt-5 text-center font-display text-2xl font-bold text-navy-950 dark:text-white">
             Admin Login
           </h1>
-          <p className="mt-2 text-center text-sm text-navy-500">
+          <p className="mt-2 text-center text-sm text-navy-600 dark:text-navy-400">
             Authorized personnel only
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
             {generalError && (
-              <div className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+              <div className="rounded-xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/40 px-4 py-3 text-sm font-medium text-red-600 dark:text-red-400">
                 {generalError}
               </div>
             )}
@@ -92,7 +92,8 @@ export default function AdminPage() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-10 text-navy-300 hover:text-navy-600"
+                className="absolute right-3 top-10 text-navy-400 dark:text-navy-500 hover:text-navy-600 dark:hover:text-navy-300"
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -103,7 +104,7 @@ export default function AdminPage() {
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-xs text-navy-400">
+          <p className="mt-6 text-center text-xs text-navy-400 dark:text-navy-500">
             This area is restricted to authorized staff only.
           </p>
         </div>

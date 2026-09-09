@@ -26,21 +26,20 @@ export default function BusinessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
-        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-xora-500/10 blur-3xl" />
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
           <div className="mx-auto max-w-3xl text-center">
             <span className="section-label">
               For Businesses
             </span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Digital Solutions That Help{" "}
               <span className="bg-xora-gradient bg-clip-text text-transparent">
                 Businesses Grow
               </span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-500">
+            <p className="mt-6 text-lg leading-relaxed text-navy-500 dark:text-navy-400">
               Professional websites, web applications, AI solutions and digital
               services — built to grow your business.
             </p>
@@ -55,10 +54,10 @@ export default function BusinessPage() {
             <div className="mt-10 flex items-center justify-center gap-8">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="font-display text-2xl font-bold text-xora-600">
+                  <p className="font-display text-2xl font-bold text-xora-600 dark:text-xora-400">
                     {stat.value}
                   </p>
-                  <p className="text-xs font-medium text-navy-500">{stat.label}</p>
+                  <p className="text-xs font-medium text-navy-500 dark:text-navy-400">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -67,7 +66,7 @@ export default function BusinessPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="What We Do"
@@ -78,22 +77,22 @@ export default function BusinessPage() {
             {services.map((service) => (
               <div
                 key={service.slug}
-                className="group flex flex-col rounded-2xl border border-navy-50 bg-white p-6 shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5"
+                className="group flex flex-col rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5 dark:border-navy-800/80 dark:bg-navy-900/80"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white dark:bg-navy-800 dark:text-xora-400">
                   <service.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-navy-900">
+                <h3 className="mt-4 font-display text-lg font-semibold text-navy-900 dark:text-white">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-500">
+                <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">
                   {service.description}
                 </p>
                 <ul className="mt-4 flex flex-col gap-1.5">
                   {service.points.map((point) => (
                     <li
                       key={point}
-                      className="flex items-center gap-2 text-xs text-navy-600"
+                      className="flex items-center gap-2 text-xs text-navy-600 dark:text-navy-300"
                     >
                       <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-xora-500" />
                       {point}
@@ -107,7 +106,7 @@ export default function BusinessPage() {
       </section>
 
       {/* Packages */}
-      <section id="packages" className="bg-white py-20 lg:py-28">
+      <section id="packages" className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="Pricing"
@@ -118,10 +117,10 @@ export default function BusinessPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`relative flex flex-col overflow-hidden rounded-3xl border bg-white p-7 shadow-card transition-all duration-200 hover:shadow-card-hover sm:p-8 ${
+                className={`relative flex flex-col overflow-hidden rounded-3xl border bg-white/80 p-7 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:bg-navy-900/80 sm:p-8 ${
                   pkg.popular
-                    ? "border-xora-300 ring-1 ring-xora-200"
-                    : "border-navy-50"
+                    ? "border-xora-300 ring-1 ring-xora-200 dark:border-xora-500 dark:ring-xora-500/30"
+                    : "border-navy-50 dark:border-navy-800/80"
                 }`}
               >
                 {pkg.popular && (
@@ -130,11 +129,11 @@ export default function BusinessPage() {
                     Most Popular
                   </div>
                 )}
-                <h3 className="font-display text-xl font-bold text-navy-950">
+                <h3 className="font-display text-xl font-bold text-navy-950 dark:text-white">
                   {pkg.name}
                 </h3>
                 <div className="mt-3">
-                  <span className="font-display text-4xl font-bold text-navy-950">
+                  <span className="font-display text-4xl font-bold text-navy-950 dark:text-white">
                     {pkg.price}
                   </span>
                 </div>
@@ -142,7 +141,7 @@ export default function BusinessPage() {
                   {pkg.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-2.5 text-sm text-navy-700"
+                      className="flex items-start gap-2.5 text-sm text-navy-700 dark:text-navy-300"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-xora-500" />
                       {feature}

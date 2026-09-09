@@ -39,28 +39,28 @@ export default function VerifyCertificatePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden bg-transparent pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">
               Certificate Verification
             </span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Verify Xora Internship Certificate
             </h1>
-            <p className="mt-6 text-lg text-navy-500">
+            <p className="mt-6 text-lg text-navy-600 dark:text-navy-300">
               Enter a certificate ID to verify its authenticity and view details.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-transparent py-20 lg:py-28">
         <div className="container-x">
           <div className="mx-auto max-w-lg">
             {/* Search Form */}
-            <form onSubmit={handleVerify} className="rounded-2xl border border-navy-50 bg-white p-6 shadow-card">
+            <form onSubmit={handleVerify} className="rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-6 sm:p-8 shadow-card">
               <div className="flex flex-col gap-3 sm:flex-row">
                 <div className="relative flex-1">
                   <input
@@ -74,7 +74,7 @@ export default function VerifyCertificatePage() {
                     placeholder="Enter Certificate ID (e.g. XORA-ABC123456789)"
                     className="input !pr-10"
                   />
-                  <ShieldCheck className="absolute right-3 top-3.5 h-4 w-4 text-navy-300" />
+                  <ShieldCheck className="absolute right-3 top-3.5 h-4 w-4 text-navy-400 dark:text-navy-500" />
                 </div>
                 <Button type="submit" variant="primary" disabled={status === "loading" || !certificateId.trim()}>
                   {status === "loading" ? <LoadingSpinner /> : <Search className="h-4 w-4" />}
@@ -85,14 +85,14 @@ export default function VerifyCertificatePage() {
 
             {/* Result */}
             {status === "success" && data && (
-              <div className="mt-8 overflow-hidden rounded-2xl border border-green-100 bg-white shadow-card">
-                <div className="bg-green-50 px-6 py-4">
+              <div className="mt-8 overflow-hidden rounded-3xl border border-green-200 dark:border-green-800 bg-white/90 dark:bg-navy-900/90 backdrop-blur-md shadow-card">
+                <div className="bg-green-50 dark:bg-green-950/40 px-6 py-4 border-b border-green-200 dark:border-green-800/50">
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span className="text-sm font-bold text-green-700">Certificate Verified</span>
+                    <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
+                    <span className="text-sm font-bold text-green-700 dark:text-green-300">Certificate Verified</span>
                   </div>
                 </div>
-                <div className="divide-y divide-navy-50 px-6 py-4">
+                <div className="divide-y divide-navy-100 dark:divide-navy-800 px-6 py-4">
                   {[
                     ["Student Name", data.student_name],
                     ["Internship Domain", data.internship_domain],
@@ -102,8 +102,8 @@ export default function VerifyCertificatePage() {
                     ["Issue Date", data.issue_date],
                   ].map(([label, value]) => (
                     <div key={label} className="flex items-center justify-between py-3.5">
-                      <span className="text-sm text-navy-400">{label}</span>
-                      <span className="text-sm font-semibold text-navy-900">{value}</span>
+                      <span className="text-sm text-navy-500 dark:text-navy-400">{label}</span>
+                      <span className="text-sm font-semibold text-navy-900 dark:text-white">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -111,10 +111,10 @@ export default function VerifyCertificatePage() {
             )}
 
             {status === "error" && (
-              <div className="mt-8 rounded-2xl bg-red-50 p-6 text-center">
-                <XCircle className="mx-auto h-10 w-10 text-red-400" />
-                <p className="mt-3 text-sm font-medium text-red-600">{errorMessage}</p>
-                <p className="mt-1 text-xs text-red-400">
+              <div className="mt-8 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 p-6 text-center">
+                <XCircle className="mx-auto h-10 w-10 text-red-500 dark:text-red-400" />
+                <p className="mt-3 text-sm font-medium text-red-600 dark:text-red-300">{errorMessage}</p>
+                <p className="mt-1 text-xs text-red-500 dark:text-red-400">
                   Please check the certificate ID and try again.
                 </p>
               </div>

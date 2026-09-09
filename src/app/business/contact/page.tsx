@@ -68,42 +68,42 @@ function ContactContent() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden bg-transparent pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">Get in Touch</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Enquire About Your Package
             </h1>
-            <p className="mt-6 text-lg text-navy-500">
+            <p className="mt-6 text-lg text-navy-600 dark:text-navy-300">
               Tell us about your project and we&apos;ll get back to you with a tailored plan.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-transparent py-20 lg:py-28">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Form */}
-            <div className="lg:col-span-3">
-              <h2 className="font-display text-2xl font-bold text-navy-950">Send an Enquiry</h2>
-              <p className="mt-2 text-sm text-navy-500">
+            <div className="lg:col-span-3 rounded-3xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-6 sm:p-10 shadow-card">
+              <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white">Send an Enquiry</h2>
+              <p className="mt-2 text-sm text-navy-600 dark:text-navy-400">
                 Fill in the details below and our team will contact you within 24 hours.
               </p>
 
               {(selectedService || selectedPackage) && (
-                <div className="mt-6 rounded-2xl border border-xora-100 bg-xora-50/60 p-4">
+                <div className="mt-6 rounded-2xl border border-xora-200 dark:border-xora-800 bg-xora-50/60 dark:bg-xora-950/40 p-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex flex-wrap gap-2">
                       {selectedService && (
-                        <span className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy-800 ring-1 ring-navy-100">
+                        <span className="inline-flex items-center rounded-full bg-white dark:bg-navy-800 px-3 py-1 text-xs font-semibold text-navy-800 dark:text-navy-200 ring-1 ring-navy-200 dark:ring-navy-700">
                           Service: {selectedService}
                         </span>
                       )}
                       {selectedPackage && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-xora-600 ring-1 ring-xora-200">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white dark:bg-navy-800 px-3 py-1 text-xs font-semibold text-xora-600 dark:text-xora-400 ring-1 ring-xora-200 dark:ring-xora-800">
                           <PackageIcon className="h-3 w-3" />
                           Package: {selectedPackage}
                         </span>
@@ -111,7 +111,7 @@ function ContactContent() {
                     </div>
                     <a
                       href={serviceParam ? `/business/packages?service=${serviceParam}` : "/business/packages"}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 underline underline-offset-2"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 dark:text-xora-400 underline underline-offset-2"
                     >
                       <X className="h-3 w-3" />
                       Change
@@ -147,7 +147,7 @@ function ContactContent() {
                     <div className="mt-2">
                       <a
                         href={`/business/services#${selectedServiceObj.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 underline underline-offset-2 hover:text-xora-700"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 dark:text-xora-400 underline underline-offset-2 hover:text-xora-700 dark:hover:text-xora-300"
                       >
                         View Details
                       </a>
@@ -170,51 +170,51 @@ function ContactContent() {
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
-              <h3 className="font-display text-lg font-semibold text-navy-950">Contact Details</h3>
+              <h3 className="font-display text-lg font-semibold text-navy-950 dark:text-white">Contact Details</h3>
               <div className="mt-6 space-y-5">
                 <a
                   href={TEL_LINK}
-                  className="flex items-center gap-3.5 rounded-xl border border-navy-50 bg-white p-4 shadow-sm transition-all hover:shadow-card"
+                  className="flex items-center gap-3.5 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-4 shadow-sm transition-all hover:shadow-card"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-xora-50 dark:bg-xora-950/60 text-xora-600 dark:text-xora-400">
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold text-navy-400">Call / WhatsApp</p>
-                    <p className="text-sm font-semibold text-navy-900">{PHONE_DISPLAY}</p>
+                    <p className="text-xs font-bold text-navy-400 dark:text-navy-500">Call / WhatsApp</p>
+                    <p className="text-sm font-semibold text-navy-900 dark:text-white">{PHONE_DISPLAY}</p>
                   </div>
                 </a>
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3.5 rounded-xl border border-navy-50 bg-white p-4 shadow-sm transition-all hover:shadow-card"
+                  className="flex items-center gap-3.5 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-4 shadow-sm transition-all hover:shadow-card"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-50 dark:bg-green-950/50 text-green-600 dark:text-green-400">
                     <MessageCircle className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold text-navy-400">WhatsApp</p>
-                    <p className="text-sm font-semibold text-navy-900">Chat with us</p>
+                    <p className="text-xs font-bold text-navy-400 dark:text-navy-500">WhatsApp</p>
+                    <p className="text-sm font-semibold text-navy-900 dark:text-white">Chat with us</p>
                   </div>
                 </a>
                 <a
                   href={`https://${WEBSITE}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3.5 rounded-xl border border-navy-50 bg-white p-4 shadow-sm transition-all hover:shadow-card"
+                  className="flex items-center gap-3.5 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-4 shadow-sm transition-all hover:shadow-card"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-700">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy-50 dark:bg-navy-800 text-navy-700 dark:text-navy-300">
                     <Globe className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold text-navy-400">Website</p>
-                    <p className="text-sm font-semibold text-navy-900">{WEBSITE}</p>
+                    <p className="text-xs font-bold text-navy-400 dark:text-navy-500">Website</p>
+                    <p className="text-sm font-semibold text-navy-900 dark:text-white">{WEBSITE}</p>
                   </div>
                 </a>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-navy-950 p-6">
+              <div className="mt-8 rounded-2xl bg-navy-950 border border-navy-800 p-6">
                 <h4 className="text-sm font-bold text-white">Quick Response</h4>
                 <p className="mt-2 text-xs leading-relaxed text-navy-200">
                   We typically respond within 24 hours on business days. For urgent queries, call or WhatsApp us directly.

@@ -31,13 +31,13 @@ export default async function DomainDetailPage({ params }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-12 lg:pt-36 lg:pb-16">
-        <div className="absolute inset-0 grid-light opacity-60" />
-        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-xora-500/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-transparent pt-28 pb-12 lg:pt-36 lg:pb-16">
+        <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
+        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-xora-500/10 blur-3xl pointer-events-none" />
         <div className="container-x relative">
           <Link
             href="/internships/domains"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-500 hover:text-navy-900 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-500 dark:text-navy-400 hover:text-navy-900 dark:hover:text-white transition-colors"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
             All Domains
@@ -46,12 +46,12 @@ export default async function DomainDetailPage({ params }: Props) {
             <span className="text-5xl" role="img" aria-hidden="true">{domain.emoji}</span>
             <div>
               <span className="section-label">Internship Domain</span>
-              <h1 className="mt-3 font-display text-3xl font-bold text-navy-950 sm:text-4xl">
+              <h1 className="mt-3 font-display text-3xl font-bold text-navy-950 dark:text-white sm:text-4xl">
                 {domain.title}
               </h1>
               <div className="mt-3 flex items-center gap-4">
-                <span className="inline-flex items-center gap-1.5 text-sm text-navy-600">
-                  <Clock className="h-4 w-4 text-xora-600" />
+                <span className="inline-flex items-center gap-1.5 text-sm text-navy-600 dark:text-navy-300">
+                  <Clock className="h-4 w-4 text-xora-600 dark:text-xora-400" />
                   {domain.duration}
                 </span>
               </div>
@@ -60,10 +60,10 @@ export default async function DomainDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-white pb-20 lg:pb-28">
+      <section className="bg-transparent pb-20 lg:pb-28">
         <div className="container-x">
           {/* Domain Featured Hero Banner */}
-          <div className="relative mb-10 h-52 sm:h-64 lg:h-72 w-full overflow-hidden rounded-2xl border border-navy-50 bg-navy-950 shadow-card">
+          <div className="relative mb-10 h-52 sm:h-64 lg:h-72 w-full overflow-hidden rounded-2xl border border-navy-100 dark:border-navy-800 bg-navy-950 shadow-card">
             <Image
               src={domain.image}
               alt={domain.title}
@@ -77,22 +77,22 @@ export default async function DomainDetailPage({ params }: Props) {
 
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <h2 className="font-display text-2xl font-bold text-navy-950">About This Domain</h2>
-              <p className="mt-4 text-base leading-relaxed text-navy-600">
+              <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white">About This Domain</h2>
+              <p className="mt-4 text-base leading-relaxed text-navy-600 dark:text-navy-300">
                 {domain.description}
               </p>
 
-              <h3 className="mt-8 font-display text-xl font-bold text-navy-950">Skills You&apos;ll Learn</h3>
+              <h3 className="mt-8 font-display text-xl font-bold text-navy-950 dark:text-white">Skills You&apos;ll Learn</h3>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {domain.skills.map((skill) => (
-                  <div key={skill} className="flex items-center gap-2.5 rounded-xl border border-navy-50 bg-white p-3 shadow-sm">
+                  <div key={skill} className="flex items-center gap-2.5 rounded-xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-3 shadow-sm">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-xora-500" />
-                    <span className="text-sm font-medium text-navy-800">{skill}</span>
+                    <span className="text-sm font-medium text-navy-800 dark:text-navy-200">{skill}</span>
                   </div>
                 ))}
               </div>
 
-              <h3 className="mt-8 font-display text-xl font-bold text-navy-950">What to Expect</h3>
+              <h3 className="mt-8 font-display text-xl font-bold text-navy-950 dark:text-white">What to Expect</h3>
               <ul className="mt-4 space-y-3">
                 {[
                   "Hands-on project-based learning with real-world scenarios",
@@ -101,7 +101,7 @@ export default async function DomainDetailPage({ params }: Props) {
                   "A final project to showcase your skills",
                   "Verified internship certificate upon completion",
                 ].map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm text-navy-600">
+                  <li key={point} className="flex items-start gap-2.5 text-sm text-navy-600 dark:text-navy-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-xora-500" />
                     {point}
                   </li>
@@ -110,20 +110,20 @@ export default async function DomainDetailPage({ params }: Props) {
             </div>
 
             <div className="lg:col-span-1">
-              <div className="sticky top-24 rounded-2xl border border-navy-50 bg-white p-6 shadow-card">
-                <h3 className="font-display text-lg font-bold text-navy-950">Quick Facts</h3>
+              <div className="sticky top-24 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-6 shadow-card">
+                <h3 className="font-display text-lg font-bold text-navy-950 dark:text-white">Quick Facts</h3>
                 <div className="mt-4 space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-navy-400">Duration</span>
-                    <span className="font-semibold text-navy-900">{domain.duration}</span>
+                    <span className="text-navy-400 dark:text-navy-500">Duration</span>
+                    <span className="font-semibold text-navy-900 dark:text-white">{domain.duration}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-navy-400">Format</span>
-                    <span className="font-semibold text-navy-900">Project-Based</span>
+                    <span className="text-navy-400 dark:text-navy-500">Format</span>
+                    <span className="font-semibold text-navy-900 dark:text-white">Project-Based</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-navy-400">Certificate</span>
-                    <span className="font-semibold text-navy-900">Included</span>
+                    <span className="text-navy-400 dark:text-navy-500">Certificate</span>
+                    <span className="font-semibold text-navy-900 dark:text-white">Included</span>
                   </div>
                 </div>
                 <div className="mt-6 flex flex-col gap-3">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Award, ArrowRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
@@ -39,8 +40,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b border-navy-50 bg-white transition-all duration-300",
-        scrolled && "shadow-sm"
+        "fixed inset-x-0 top-0 z-50 border-b border-navy-50/80 bg-white/80 backdrop-blur-xl transition-all duration-300 dark:border-navy-800/80 dark:bg-navy-950/80",
+        scrolled && "shadow-sm dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]"
       )}
     >
       <div className="container-x">
@@ -59,8 +60,8 @@ export function Header() {
                     className={cn(
                       "relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
                       active
-                        ? "text-xora-600 bg-xora-50"
-                        : "text-navy-600 hover:text-navy-900 hover:bg-navy-50"
+                        ? "text-xora-600 bg-xora-50 dark:bg-xora-950/70 dark:text-xora-400"
+                        : "text-navy-600 hover:text-navy-900 hover:bg-navy-50 dark:text-navy-300 dark:hover:text-white dark:hover:bg-navy-900/60"
                     )}
                   >
                     {item.label}
@@ -70,15 +71,16 @@ export function Header() {
             })}
           </ul>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA & Theme Switcher */}
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/verify-certificate"
-              className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50"
+              className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium text-navy-600 transition-colors hover:bg-navy-50 dark:text-navy-300 dark:hover:bg-navy-900 dark:hover:text-white"
             >
               <Award className="h-4 w-4" />
               Verify Certificate
             </Link>
+            <ThemeToggle />
             <Link
               href="/internships/apply"
               className="btn-primary !px-4 !py-2.5 !text-sm"
@@ -88,22 +90,25 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-navy-700 transition-colors hover:bg-navy-50 lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile Theme Toggle & Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-navy-700 transition-colors hover:bg-navy-50 dark:text-navy-200 dark:hover:bg-navy-900"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
       </div>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-16 bottom-0 z-40 border-t border-navy-50 bg-white transition-all duration-300 lg:hidden",
+          "fixed inset-x-0 top-16 bottom-0 z-40 border-t border-navy-50 bg-white/95 backdrop-blur-2xl transition-all duration-300 dark:border-navy-800 dark:bg-navy-950/95 lg:hidden",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -119,18 +124,18 @@ export function Header() {
                 className={cn(
                   "rounded-xl px-4 py-3 text-base font-medium transition-colors",
                   active
-                    ? "text-xora-600 bg-xora-50"
-                    : "text-navy-700 hover:bg-navy-50"
+                    ? "text-xora-600 bg-xora-50 dark:bg-xora-950/70 dark:text-xora-400"
+                    : "text-navy-700 hover:bg-navy-50 dark:text-navy-200 dark:hover:bg-navy-900"
                 )}
               >
                 {item.label}
               </Link>
             );
           })}
-          <div className="my-4 h-px bg-navy-100" />
+          <div className="my-4 h-px bg-navy-100 dark:bg-navy-800" />
           <Link
             href="/verify-certificate"
-            className="rounded-xl px-4 py-3 text-base font-medium text-navy-700 hover:bg-navy-50"
+            className="rounded-xl px-4 py-3 text-base font-medium text-navy-700 hover:bg-navy-50 dark:text-navy-200 dark:hover:bg-navy-900"
           >
             Verify Certificate
           </Link>

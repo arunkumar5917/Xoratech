@@ -20,26 +20,26 @@ export function ServiceCard({
   return (
     <div
       id={service.slug}
-      className="group flex flex-col rounded-2xl border border-navy-50 bg-white p-7 shadow-card transition-all duration-200 hover:shadow-card-hover"
+      className="group flex flex-col rounded-2xl border border-navy-50 bg-white/80 p-7 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:border-navy-800/80 dark:bg-navy-900/80"
     >
       <div className="flex items-start gap-4">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white dark:bg-navy-800 dark:text-xora-400">
           {iconNode}
         </span>
         <div className="min-w-0">
-          <span className="text-xs font-bold text-xora-500">
+          <span className="text-xs font-bold text-xora-500 dark:text-xora-400">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="font-display text-xl font-bold text-navy-950">
+          <h3 className="font-display text-xl font-bold text-navy-950 dark:text-white">
             {service.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-navy-500">
+          <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">
             {service.description}
           </p>
           {open && (
             <ul className="mt-4 grid grid-cols-2 gap-2">
               {service.points.map((point) => (
-                <li key={point} className="flex items-center gap-2 text-sm text-navy-600">
+                <li key={point} className="flex items-center gap-2 text-sm text-navy-600 dark:text-navy-300">
                   <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-xora-500" />
                   {point}
                 </li>

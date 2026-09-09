@@ -23,7 +23,7 @@ export function FormError({ message }: { message?: string }) {
 export function FormSuccess({ message }: { message?: string }) {
   if (!message) return null;
   return (
-    <div className="mb-4 flex items-center gap-3 rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
+    <div className="mb-4 flex items-center gap-3 rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-700 dark:bg-green-950/60 dark:text-green-300 dark:border dark:border-green-800/60">
       <span className="h-2 w-2 rounded-full bg-green-500" />
       {message}
     </div>
@@ -52,16 +52,18 @@ export function FormField({
   };
 
   const baseClass = cn(
-    "w-full rounded-xl border bg-white px-4 py-3 text-sm text-navy-950 placeholder-navy-300 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-xora-500/30",
-    error ? "border-red-300 focus:border-red-400" : "border-navy-100 focus:border-xora-500"
+    "w-full rounded-xl border bg-white px-4 py-3 text-sm text-navy-950 placeholder-navy-300 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-xora-500/30 dark:bg-navy-900/90 dark:text-white dark:placeholder-navy-500",
+    error
+      ? "border-red-300 focus:border-red-400 dark:border-red-800"
+      : "border-navy-100 focus:border-xora-500 dark:border-navy-800 dark:focus:border-xora-400"
   );
 
   return (
     <div>
       {label && (
-        <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-navy-900">
+        <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-navy-900 dark:text-navy-100">
           {label}
-          {required && <span className="ml-0.5 text-xora-600">*</span>}
+          {required && <span className="ml-0.5 text-xora-600 dark:text-xora-400">*</span>}
         </label>
       )}
       {textarea ? (
@@ -78,14 +80,14 @@ export function FormField({
         <select
           id={name}
           name={name}
-          className={cn(baseClass, value ? "" : "text-navy-400")}
+          className={cn(baseClass, value ? "" : "text-navy-400 dark:text-navy-500")}
           required={required}
           value={value}
           onChange={handleChange}
         >
-          <option value="" disabled className="text-navy-400">{placeholder || "Select an option"}</option>
+          <option value="" disabled className="text-navy-400 dark:bg-navy-900">{placeholder || "Select an option"}</option>
           {options.map((opt) => (
-            <option key={opt} value={opt} className="text-navy-950">{opt}</option>
+            <option key={opt} value={opt} className="text-navy-950 dark:bg-navy-900 dark:text-white">{opt}</option>
           ))}
         </select>
       ) : (

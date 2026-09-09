@@ -24,30 +24,30 @@ export default function PackagesPage({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">Pricing</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Website Packages
             </h1>
-            <p className="mt-6 text-lg text-navy-500">
+            <p className="mt-6 text-lg text-navy-500 dark:text-navy-400">
               Transparent pricing — choose the package that fits your business needs.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           {service && (
-            <div className="mb-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-xora-100 bg-xora-50/60 px-6 py-5 sm:flex-row">
+            <div className="mb-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-xora-100 bg-xora-50/60 px-6 py-5 dark:border-xora-900/60 dark:bg-xora-950/40 sm:flex-row">
               <div className="text-center sm:text-left">
-                <p className="text-xs font-bold uppercase tracking-wider text-xora-500">
+                <p className="text-xs font-bold uppercase tracking-wider text-xora-500 dark:text-xora-400">
                   Selected Service
                 </p>
-                <p className="mt-1 font-display text-lg font-bold text-navy-950">
+                <p className="mt-1 font-display text-lg font-bold text-navy-950 dark:text-white">
                   {service.title}
                 </p>
               </div>
@@ -61,10 +61,10 @@ export default function PackagesPage({
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`relative flex flex-col overflow-hidden rounded-3xl border bg-white p-7 shadow-card transition-all duration-200 hover:shadow-card-hover sm:p-8 ${
+                className={`relative flex flex-col overflow-hidden rounded-3xl border bg-white/80 p-7 shadow-card backdrop-blur-md transition-all duration-200 hover:shadow-card-hover dark:bg-navy-900/80 sm:p-8 ${
                   pkg.popular
-                    ? "border-xora-300 ring-1 ring-xora-200"
-                    : "border-navy-50"
+                    ? "border-xora-300 ring-1 ring-xora-200 dark:border-xora-500 dark:ring-xora-500/30"
+                    : "border-navy-50 dark:border-navy-800/80"
                 }`}
               >
                 {pkg.popular && (
@@ -73,11 +73,11 @@ export default function PackagesPage({
                     Most Popular
                   </div>
                 )}
-                <h3 className="font-display text-2xl font-bold text-navy-950">
+                <h3 className="font-display text-2xl font-bold text-navy-950 dark:text-white">
                   {pkg.name}
                 </h3>
                 <div className="mt-4">
-                  <span className="font-display text-5xl font-bold text-navy-950">
+                  <span className="font-display text-5xl font-bold text-navy-950 dark:text-white">
                     {pkg.price}
                   </span>
                 </div>
@@ -85,7 +85,7 @@ export default function PackagesPage({
                   {pkg.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-2.5 text-sm text-navy-700"
+                      className="flex items-start gap-2.5 text-sm text-navy-700 dark:text-navy-300"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-xora-500" />
                       {feature}
@@ -115,16 +115,16 @@ export default function PackagesPage({
           <div className="mt-16 text-center">
             <a
               href={serviceSlug ? `/business/services#${serviceSlug}` : "/business/services"}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-xora-600 underline underline-offset-2"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-xora-600 underline underline-offset-2 hover:text-xora-500"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Services
             </a>
-            <p className="mt-4 text-sm text-navy-500">
+            <p className="mt-4 text-sm text-navy-500 dark:text-navy-400">
               Need something custom?{" "}
               <a
                 href={serviceSlug ? `/business/contact?service=${serviceSlug}` : "/business/contact"}
-                className="font-semibold text-xora-600 underline underline-offset-2"
+                className="font-semibold text-xora-600 underline underline-offset-2 hover:text-xora-500"
               >
                 Get in touch
               </a>{" "}

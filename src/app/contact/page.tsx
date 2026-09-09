@@ -8,83 +8,83 @@ import { PHONE_DISPLAY, TEL_LINK, WHATSAPP_LINK, WEBSITE, ADDRESS, MAPS_URL } fr
 export default function ContactPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden bg-transparent pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-60 dark:opacity-20 pointer-events-none" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">Get in Touch</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               Contact Us
             </h1>
-            <p className="mt-6 text-lg text-navy-500">
+            <p className="mt-6 text-lg text-navy-600 dark:text-navy-300">
               Have a question or ready to start? Reach out and we&apos;ll respond quickly.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-transparent py-20 lg:py-28">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact Cards */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy-950">Reach Us Directly</h2>
-              <p className="mt-3 text-sm text-navy-500">
+              <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white">Reach Us Directly</h2>
+              <p className="mt-3 text-sm text-navy-600 dark:text-navy-400">
                 The fastest way to reach us is by phone or WhatsApp.
               </p>
               <div className="mt-8 space-y-4">
                 <a
                   href={TEL_LINK}
-                  className="group flex items-center gap-4 rounded-2xl border border-navy-50 bg-white p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 dark:bg-xora-950/60 text-xora-600 dark:text-xora-400 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
                     <Phone className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400">Call / WhatsApp</p>
-                    <p className="mt-0.5 text-base font-semibold text-navy-900">{PHONE_DISPLAY}</p>
+                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">Call / WhatsApp</p>
+                    <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">{PHONE_DISPLAY}</p>
                   </div>
                 </a>
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-navy-50 bg-white p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-600 transition-colors group-hover:bg-green-500 group-hover:text-white">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 dark:bg-green-950/50 text-green-600 dark:text-green-400 transition-colors group-hover:bg-green-500 group-hover:text-white">
                     <MessageCircle className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400">WhatsApp</p>
-                    <p className="mt-0.5 text-base font-semibold text-navy-900">Chat with us directly</p>
+                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">WhatsApp</p>
+                    <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">Chat with us directly</p>
                   </div>
                 </a>
                 <a
                   href={`https://${WEBSITE}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-navy-50 bg-white p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-700 transition-colors group-hover:bg-navy-950 group-hover:text-white">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-50 dark:bg-navy-800 text-navy-700 dark:text-navy-300 transition-colors group-hover:bg-navy-950 dark:group-hover:bg-navy-700 group-hover:text-white">
                     <Globe className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400">Website</p>
-                    <p className="mt-0.5 text-base font-semibold text-navy-900">{WEBSITE}</p>
+                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">Website</p>
+                    <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">{WEBSITE}</p>
                   </div>
                 </a>
                 <a
                   href={`https://maps.google.com/?q=${encodeURIComponent(ADDRESS)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-2xl border border-navy-50 bg-white p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+                  className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 text-xora-600 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xora-50 dark:bg-xora-950/60 text-xora-600 dark:text-xora-400 transition-colors group-hover:bg-xora-gradient group-hover:text-white">
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400">Office Address</p>
-                    <p className="mt-0.5 text-base font-semibold text-navy-900">{ADDRESS}</p>
+                    <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">Office Address</p>
+                    <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">{ADDRESS}</p>
                   </div>
                 </a>
               </div>
@@ -92,8 +92,8 @@ export default function ContactPage() {
 
             {/* Quick Enquiry */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-navy-950">Quick Enquiry</h2>
-              <p className="mt-3 text-sm text-navy-500">
+              <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white">Quick Enquiry</h2>
+              <p className="mt-3 text-sm text-navy-600 dark:text-navy-400">
                 For detailed enquiries, visit our business contact page.
               </p>
               <div className="mt-8 flex flex-col gap-3">
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 </Button>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-navy-950 p-6">
+              <div className="mt-8 rounded-2xl bg-navy-950 border border-navy-800 p-6">
                 <h3 className="text-sm font-bold text-white">Office Hours</h3>
                 <div className="mt-3 space-y-2 text-sm text-navy-200">
                   <div className="flex justify-between">
@@ -127,9 +127,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white pb-20 lg:pb-28">
+      <section className="bg-transparent pb-20 lg:pb-28">
         <div className="container-x">
-          <div className="rounded-3xl border border-navy-50 overflow-hidden shadow-card">
+          <div className="rounded-3xl border border-navy-100 dark:border-navy-800 overflow-hidden shadow-card">
             <iframe
               title="XORA Technologies Location"
               src={MAPS_URL}

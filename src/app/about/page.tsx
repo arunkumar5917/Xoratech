@@ -43,15 +43,15 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div className="absolute inset-0 grid-light opacity-60" />
+      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 grid-light opacity-40 dark:opacity-10" />
         <div className="container-x relative">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">About Us</span>
-            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 sm:text-5xl">
+            <h1 className="mt-6 font-display text-4xl font-bold text-navy-950 dark:text-white sm:text-5xl">
               About Xora Technologies
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-500">
+            <p className="mt-6 text-lg leading-relaxed text-navy-500 dark:text-navy-400">
               Xora Technologies is focused on building practical digital solutions
               for businesses and creating meaningful learning opportunities for students.
             </p>
@@ -59,13 +59,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <div className="grid items-start gap-16 lg:grid-cols-2">
             {/* Mission */}
             <div>
-              <h2 className="font-display text-3xl font-bold text-navy-950">Who We Are</h2>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-600">
+              <h2 className="font-display text-3xl font-bold text-navy-950 dark:text-white">Who We Are</h2>
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-600 dark:text-navy-300">
                 <p>
                   Xora Technologies is a technology company with a clear mission: help
                   businesses build their digital presence and give students a platform to
@@ -85,7 +85,7 @@ export default function AboutPage() {
             </div>
 
             {/* Approach */}
-            <div className="rounded-3xl bg-navy-950 p-8 text-white">
+            <div className="rounded-3xl bg-navy-950 p-8 text-white dark:bg-navy-900/90 dark:border dark:border-navy-800">
               <h3 className="font-display text-xl font-bold">Our Approach</h3>
               <p className="mt-3 text-sm leading-relaxed text-navy-200">
                 We believe in practical, results-oriented work — whether it&apos;s a website for a
@@ -117,7 +117,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="container-x">
           <SectionHeading
             eyebrow="Our Values"
@@ -126,12 +126,12 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white p-6 shadow-card">
+              <div key={item.title} className="rounded-2xl border border-navy-50 bg-white/80 p-6 shadow-card backdrop-blur-md dark:border-navy-800/80 dark:bg-navy-900/80">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-xora-gradient text-white shadow-glow">
                   <item.icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold text-navy-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-500">{item.desc}</p>
+                <h3 className="mt-4 font-display text-lg font-semibold text-navy-950 dark:text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-500 dark:text-navy-400">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -139,12 +139,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-16 lg:py-20">
+      <section className="py-16 lg:py-20">
         <div className="container-x text-center">
-          <h2 className="font-display text-2xl font-bold text-navy-950 sm:text-3xl">
+          <h2 className="font-display text-2xl font-bold text-navy-950 dark:text-white sm:text-3xl">
             Let&apos;s Work Together
           </h2>
-          <p className="mt-3 text-sm text-navy-500">
+          <p className="mt-3 text-sm text-navy-500 dark:text-navy-400">
             Whether you&apos;re a business looking for digital solutions or a student ready to learn, we&apos;re here.
           </p>
           <div className="mt-6 flex justify-center gap-3">
