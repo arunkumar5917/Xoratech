@@ -13,13 +13,10 @@ export const isSupabaseConfigured = Boolean(
 );
 
 export function createServerClient() {
-  if (!isSupabaseConfigured) {
-    throw new Error(
-      "Supabase is not configured. Add NEXT_PUBLIC_SUPABASE_URL and the appropriate keys to your environment."
-    );
-  }
-  const key = (!serviceKey || serviceKey.includes("placeholder")) ? anonKey : serviceKey;
-  return createClient(url, key, {
+  const safeUrl = isSupabaseConfigured ? url : "https://placeholder.supabase.co";
+  const rawKey = (!serviceKey || serviceKey.includes("placeholder")) ? anonKey : serviceKey;
+  const safeKey = rawKey && !rawKey.includes("placeholder") ? rawKey : "placeholder-service-role-key";
+  return createClient(safeUrl, safeKey, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,

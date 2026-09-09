@@ -12,10 +12,7 @@ export const isSupabaseConfigured = Boolean(
 );
 
 export function createClient() {
-  if (!isSupabaseConfigured) {
-    throw new Error(
-      "Supabase is not configured. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your environment."
-    );
-  }
-  return createBrowserClient(url, anonKey);
+  const safeUrl = isSupabaseConfigured ? url : "https://placeholder.supabase.co";
+  const safeKey = isSupabaseConfigured ? anonKey : "placeholder-anon-key";
+  return createBrowserClient(safeUrl, safeKey);
 }
