@@ -5,8 +5,9 @@ import { LogoSvg } from "@/components/Logo";
 import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE } from "@/lib/utils";
 
 const BUSINESS_LINKS = [
-  { label: "Services", href: "/business/services" },
-  { label: "Website Packages", href: "/business/packages" },
+  { label: "All Services", href: "/business#services" },
+  { label: "Website Packages", href: "/business#packages" },
+  { label: "Our Process", href: "/business#process" },
   { label: "Request a Quote", href: "/business/contact" },
 ];
 

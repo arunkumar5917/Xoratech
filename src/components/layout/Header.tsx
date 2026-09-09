@@ -9,9 +9,8 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Business", href: "/business" },
+  { label: "Business & Services", href: "/business" },
   { label: "Internships", href: "/internships" },
-  { label: "Services", href: "/business/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

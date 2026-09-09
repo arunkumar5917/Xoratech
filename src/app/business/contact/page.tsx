@@ -146,7 +146,7 @@ function ContactContent() {
                   {selectedServiceObj && (
                     <div className="mt-2">
                       <a
-                        href={`/business/services#${selectedServiceObj.slug}`}
+                        href={`/business#${selectedServiceObj.slug}`}
                         className="inline-flex items-center gap-1 text-xs font-semibold text-xora-600 dark:text-xora-400 underline underline-offset-2 hover:text-xora-700 dark:hover:text-xora-300"
                       >
                         View Details
