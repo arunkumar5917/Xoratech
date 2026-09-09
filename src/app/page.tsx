@@ -166,7 +166,10 @@ export default function HomePage() {
                 </span>
                 <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl text-black">
                   Your Future Starts at{" "}
-                  <span className="text-black font-black">XORA</span>
+                  <span className="font-black">
+                    <span className="text-xora-500">X</span>
+                    <span className="text-black">ORA</span>
+                  </span>
                 </span>
               </h1>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
