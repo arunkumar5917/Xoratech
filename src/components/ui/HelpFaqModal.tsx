@@ -85,7 +85,6 @@ export function HelpFaqModal() {
 
     setSubmitting(true);
     try {
-      // Send to contact API
       await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -136,11 +135,11 @@ export function HelpFaqModal() {
         </span>
       </button>
 
-      {/* FULL MODAL OVERLAY & DRAWER */}
+      {/* FULL MODAL OVERLAY - DROPPED DOWN FROM TOP NAVIGATION BAR */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6">
-            {/* Backdrop */}
+          <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-3 pt-20 pb-8 sm:px-6 sm:pt-24">
+            {/* Backdrop with quick click-to-close */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -150,16 +149,16 @@ export function HelpFaqModal() {
               className="fixed inset-0 bg-navy-950/70 backdrop-blur-md"
             />
 
-            {/* Modal Dialog */}
+            {/* Modal Box - Dropped down smoothly */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              initial={{ opacity: 0, scale: 0.96, y: -24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative z-10 flex flex-col w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-2xl dark:border-navy-800 dark:bg-navy-950"
+              exit={{ opacity: 0, scale: 0.96, y: -20 }}
+              transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 flex w-full max-w-3xl flex-col max-h-[82vh] overflow-hidden rounded-3xl border border-navy-100/90 bg-white shadow-2xl dark:border-navy-800 dark:bg-navy-950"
             >
               {/* Header */}
-              <div className="relative border-b border-navy-100 bg-gradient-to-r from-navy-50/80 via-white to-xora-50/40 p-5 sm:p-6 dark:border-navy-800 dark:from-navy-900 dark:via-navy-950 dark:to-xora-950/20">
+              <div className="relative border-b border-navy-100 bg-gradient-to-r from-navy-50/90 via-white to-xora-50/40 p-5 sm:p-6 dark:border-navy-800 dark:from-navy-900 dark:via-navy-950 dark:to-xora-950/20">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-xora-gradient text-white shadow-glow">
@@ -177,12 +176,15 @@ export function HelpFaqModal() {
                     </div>
                   </div>
 
+                  {/* Top-Right Prominent Close Button */}
                   <button
+                    type="button"
                     onClick={() => setIsOpen(false)}
-                    aria-label="Close modal"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-navy-100/70 text-navy-500 transition-colors hover:bg-navy-200 hover:text-navy-950 dark:bg-navy-800 dark:text-navy-400 dark:hover:bg-navy-700 dark:hover:text-white"
+                    aria-label="Close FAQ window"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-navy-200 bg-white px-3 py-1.5 text-xs font-semibold text-navy-700 shadow-sm transition-all hover:bg-rose-50 hover:text-rose-600 hover:border-rose-300 active:scale-95 dark:border-navy-700 dark:bg-navy-900 dark:text-navy-300 dark:hover:bg-rose-950/40 dark:hover:text-rose-300"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-4 w-4" />
+                    <span>Close</span>
                   </button>
                 </div>
 
@@ -461,7 +463,7 @@ export function HelpFaqModal() {
                 )}
               </div>
 
-              {/* Footer Quick Reach Bar */}
+              {/* Footer Bar with Support Info and Close Button */}
               <div className="border-t border-navy-100 bg-navy-50/70 p-3.5 sm:px-6 dark:border-navy-800 dark:bg-navy-900/60 flex flex-wrap items-center justify-between gap-3 text-[11px] text-navy-500 dark:text-navy-400">
                 <div className="flex items-center gap-3">
                   <span className="font-semibold text-navy-700 dark:text-navy-300">Need immediate help?</span>
@@ -476,7 +478,16 @@ export function HelpFaqModal() {
                   </a>
                 </div>
 
-                <span>XORA Technologies Knowledge & Support</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center gap-1 rounded-lg border border-navy-200 bg-white px-3 py-1 font-semibold text-navy-700 shadow-sm transition-colors hover:bg-navy-50 hover:text-navy-900 dark:border-navy-700 dark:bg-navy-800 dark:text-navy-200 dark:hover:bg-navy-700"
+                  >
+                    <X className="h-3 w-3" />
+                    <span>Close Window</span>
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>
