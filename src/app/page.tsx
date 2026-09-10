@@ -1,14 +1,10 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { LogoSvg } from "@/components/Logo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { LinkedInReviewsSection } from "@/components/ui/LinkedInReviewsSection";
-import { domains } from "@/data/domains";
-import { services } from "@/data/services";
 import {
   FadeIn,
   StaggerContainer,
@@ -22,7 +18,6 @@ import {
   GraduationCap,
   CheckCircle2,
   Sparkles,
-  ArrowRight,
   Briefcase,
   Rocket,
   MessageSquare,
@@ -410,119 +405,6 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
-      </section>
-
-      {/* SERVICES PREVIEW */}
-      <section className="py-12 lg:py-16">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Digital Services for Your Business"
-            subtitle="Everything you need to build, grow and manage your digital presence."
-          />
-          <StaggerContainer staggerDelay={0.08} className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((service) => (
-              <StaggerItem key={service.slug}>
-                <HoverCard lift={-6} className="h-full">
-                  <Link
-                    href="/business#selection-flow"
-                    className="group flex h-full flex-col overflow-hidden rounded-3xl border border-navy-100 bg-white/85 shadow-card backdrop-blur-md transition-all duration-300 hover:border-xora-300 dark:border-navy-800 dark:bg-navy-900/85"
-                  >
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-navy-950">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white">
-                          <service.icon className="h-4 w-4" />
-                        </span>
-                        <span className="rounded-md bg-white/20 backdrop-blur-md px-2 py-0.5 text-[10px] font-semibold text-white">
-                          Digital Service
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-5 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="font-display text-base font-bold text-navy-900 transition-colors group-hover:text-xora-600 dark:text-white dark:group-hover:text-xora-400">
-                          {service.title}
-                        </h3>
-                        <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-navy-600 dark:text-navy-300">
-                          {service.description}
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between border-t border-navy-50 pt-3 dark:border-navy-800">
-                        <span className="text-xs font-semibold text-xora-600 transition-transform group-hover:translate-x-1 flex items-center gap-1 dark:text-xora-400">
-                          Explore Service <ArrowRight className="h-3.5 w-3.5" />
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </HoverCard>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <FadeIn direction="up" delay={0.2} className="mt-10 text-center">
-            <Button href="/business#selection-flow" variant="outline">
-              View All Services
-            </Button>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* INTERNSHIP DOMAINS PREVIEW */}
-      <section className="bg-white/60 py-12 lg:py-16 dark:bg-navy-950/40">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="For Students"
-            title="Internship Domains"
-            subtitle="Practical, project-based internships across 10 in-demand domains."
-          />
-          <StaggerContainer staggerDelay={0.06} className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-            {domains.slice(0, 10).map((domain) => (
-              <StaggerItem key={domain.slug}>
-                <HoverCard lift={-5} className="h-full">
-                  <Link
-                    href={`/internships/${domain.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-50 bg-white shadow-card transition-all duration-300 hover:border-xora-300 dark:border-navy-800 dark:bg-navy-900"
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-950">
-                      <Image
-                        src={domain.image}
-                        alt={domain.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
-                      <span className="absolute bottom-2 right-2 text-base" role="img" aria-hidden="true">
-                        {domain.emoji}
-                      </span>
-                    </div>
-                    <div className="flex flex-1 flex-col p-3.5 text-center">
-                      <h3 className="text-xs sm:text-sm font-bold text-navy-900 transition-colors group-hover:text-xora-600 dark:text-white dark:group-hover:text-xora-400">
-                        {domain.title}
-                      </h3>
-                      <span className="mt-0.5 text-[11px] text-navy-400 dark:text-navy-500">{domain.duration}</span>
-                      <span className="mt-2 inline-flex items-center justify-center gap-1 text-xs font-semibold text-xora-600 transition-transform group-hover:translate-x-0.5 dark:text-xora-400">
-                        View Details <ArrowRight className="h-3 w-3" />
-                      </span>
-                    </div>
-                  </Link>
-                </HoverCard>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <FadeIn direction="up" delay={0.2} className="mt-10 text-center">
-            <Button href="/internships/domains" variant="outline">
-              Explore All Domains
-            </Button>
-          </FadeIn>
         </div>
       </section>
 
