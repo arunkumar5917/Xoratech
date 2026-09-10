@@ -6,7 +6,7 @@ import { Phone, Globe, ArrowUpRight } from "lucide-react";
 import { LogoSvg } from "@/components/Logo";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
-import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE } from "@/lib/utils";
+import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE, LINKEDIN_URL } from "@/lib/utils";
 
 const BUSINESS_LINKS = [
   { label: "Digital Services", href: "/business#selection-flow" },
@@ -83,7 +83,7 @@ export function Footer() {
                 {WEBSITE}
               </a>
               <a
-                href="https://www.linkedin.com/company/xora-technologies"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"

@@ -39,7 +39,7 @@ export const linkedInReviews: LinkedInReview[] = [
     reposts: 14,
     rating: 5,
     verifiedCertificateId: "XORA-FS-2024-8842",
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
   {
     id: "review-2",
@@ -59,7 +59,7 @@ export const linkedInReviews: LinkedInReview[] = [
     comments: 41,
     reposts: 22,
     rating: 5,
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
   {
     id: "review-3",
@@ -80,7 +80,7 @@ export const linkedInReviews: LinkedInReview[] = [
     reposts: 9,
     rating: 5,
     verifiedCertificateId: "XORA-AIML-2024-5109",
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
   {
     id: "review-4",
@@ -101,7 +101,7 @@ export const linkedInReviews: LinkedInReview[] = [
     reposts: 17,
     rating: 5,
     verifiedCertificateId: "XORA-UIUX-2024-3401",
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
   {
     id: "review-5",
@@ -121,7 +121,7 @@ export const linkedInReviews: LinkedInReview[] = [
     comments: 19,
     reposts: 11,
     rating: 5,
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
   {
     id: "review-6",
@@ -142,6 +142,6 @@ export const linkedInReviews: LinkedInReview[] = [
     reposts: 13,
     rating: 5,
     verifiedCertificateId: "XORA-CLOUD-2024-1189",
-    linkedinUrl: "https://www.linkedin.com/company/xora-technologies",
+    linkedinUrl: "https://www.linkedin.com/in/xoratech",
   },
 ];

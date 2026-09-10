@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { linkedInReviews } from "@/data/reviews";
+import { LINKEDIN_URL } from "@/lib/utils";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HoverCard, FadeIn } from "@/components/animations";
 import {
@@ -351,7 +352,7 @@ export function LinkedInReviewsSection() {
             </div>
 
             <a
-              href="https://www.linkedin.com/company/xora-technologies"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-[#0A66C2] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#084e96]"
