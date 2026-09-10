@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LogoSvg } from "@/components/Logo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { LinkedInReviewsSection } from "@/components/ui/LinkedInReviewsSection";
 import { domains } from "@/data/domains";
 import { services } from "@/data/services";
 import {
@@ -524,6 +525,9 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </section>
+
+      {/* LINKEDIN REVIEWS & TESTIMONIALS */}
+      <LinkedInReviewsSection />
 
       {/* FAQ SECTION */}
       <section className="py-12 lg:py-16">
