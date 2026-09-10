@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Award, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
+import { HelpFaqModal } from "@/components/ui/HelpFaqModal";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
@@ -84,11 +85,12 @@ export function Header() {
             })}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="hidden items-center gap-3 lg:flex">
+          {/* Desktop CTA & Help/FAQ */}
+          <div className="hidden items-center gap-2.5 lg:flex">
+            <HelpFaqModal />
             <Link
               href="/verify-certificate"
-              className="inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-medium text-navy-600 transition-all duration-200 hover:bg-navy-50 hover:text-navy-900 hover:-translate-y-0.5 dark:text-navy-300 dark:hover:bg-navy-900 dark:hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs sm:text-sm font-medium text-navy-600 transition-all duration-200 hover:bg-navy-50 hover:text-navy-900 hover:-translate-y-0.5 dark:text-navy-300 dark:hover:bg-navy-900 dark:hover:text-white"
             >
               <Award className="h-4 w-4 text-xora-500" />
               Verify Certificate
@@ -102,8 +104,9 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions: Help/FAQ & Menu Button */}
           <div className="flex items-center gap-2 lg:hidden">
+            <HelpFaqModal />
             <button
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-50/80 text-navy-800 transition-transform active:scale-95 dark:bg-navy-900 dark:text-navy-200"
               onClick={() => setMobileOpen(!mobileOpen)}

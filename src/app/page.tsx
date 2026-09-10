@@ -11,7 +11,6 @@ import {
   StaggerItem,
   AnimatedCounter,
   HoverCard,
-  FAQAccordion,
 } from "@/components/animations";
 import {
   Building2,
@@ -81,33 +80,6 @@ const internshipWorkflow = [
   { icon: MessageSquare, step: "05", title: "Mentor Review" },
   { icon: Target, step: "06", title: "Complete Project" },
   { icon: BadgeCheck, step: "07", title: "Certificate" },
-];
-
-const homeFaqs = [
-  {
-    id: "faq-1",
-    question: "What types of internship programs does XORA Technologies offer?",
-    answer:
-      "We offer project-based internships across 10 specialized domains including Full Stack Web Development, AI & Machine Learning, Mobile App Development, Cloud Computing, UI/UX Design, Cyber Security, and Data Science. Every intern works on real-world projects with dedicated mentorship.",
-  },
-  {
-    id: "faq-2",
-    question: "How does the online certificate verification work?",
-    answer:
-      "Every certificate issued by XORA Technologies contains a unique Certificate ID and QR code. Anyone (including employers and universities) can instantly verify the authenticity, issue date, student name, and domain at our /verify-certificate portal.",
-  },
-  {
-    id: "faq-3",
-    question: "What technology services do you build for businesses?",
-    answer:
-      "We engineer enterprise web applications, high-converting corporate websites, custom e-commerce platforms, AI integration solutions, and scalable cloud architectures tailored to your business needs.",
-  },
-  {
-    id: "faq-4",
-    question: "Are the internships suitable for college students and beginners?",
-    answer:
-      "Yes! Our curriculum is structured with step-by-step guidance, starter templates, and active mentor checkpoints so students at various skill levels can gain practical industry experience.",
-  },
 ];
 
 function HeroVisual() {
@@ -410,20 +382,6 @@ export default function HomePage() {
 
       {/* LINKEDIN REVIEWS & TESTIMONIALS */}
       <LinkedInReviewsSection />
-
-      {/* FAQ SECTION */}
-      <section className="py-12 lg:py-16">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="Questions & Answers"
-            title="Frequently Asked Questions"
-            subtitle="Got questions? Here is everything you need to know about our business services and internship programs."
-          />
-          <FadeIn direction="up" delay={0.2} className="mx-auto mt-10 max-w-3xl">
-            <FAQAccordion items={homeFaqs} />
-          </FadeIn>
-        </div>
-      </section>
 
       {/* CTA BANNER */}
       <section className="py-12 lg:py-16">
