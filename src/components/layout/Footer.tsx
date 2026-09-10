@@ -2,11 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, Globe, ArrowUpRight } from "lucide-react";
+import { Phone, Globe, ArrowUpRight, Instagram } from "lucide-react";
 import { LogoSvg } from "@/components/Logo";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
-import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE, LINKEDIN_URL } from "@/lib/utils";
+import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE, LINKEDIN_URL, INSTAGRAM_URL } from "@/lib/utils";
 
 const BUSINESS_LINKS = [
   { label: "Digital Services", href: "/business#selection-flow" },
@@ -94,6 +94,17 @@ export function Footer() {
                   </svg>
                 </span>
                 LinkedIn Community
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 transition-transform duration-200 group-hover:scale-110 text-pink-500">
+                  <Instagram className="h-3.5 w-3.5" />
+                </span>
+                Instagram
               </a>
             </div>
           </StaggerItem>

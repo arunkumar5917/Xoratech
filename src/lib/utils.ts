@@ -14,6 +14,7 @@ export const PHONE_DISPLAY = "+91 98942 79003";
 export const WHATSAPP_LINK = "https://wa.me/919894279003";
 export const TEL_LINK = "tel:+919894279003";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/xoratech";
+export const INSTAGRAM_URL = "https://www.instagram.com/xoratechnologies?stkn=ajh1eXp2b3FtdHI=";
 
 export const ADDRESS = "Bengaluru, Karnataka, India";
 export const MAPS_QUERY = "XORA Technologies Bengaluru";

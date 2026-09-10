@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Button } from "@/components/ui/Button";
-import { Phone, MessageCircle, Globe, MapPin, Sparkles } from "lucide-react";
-import { PHONE_DISPLAY, TEL_LINK, WHATSAPP_LINK, WEBSITE, ADDRESS, MAPS_URL } from "@/lib/utils";
+import { Phone, MessageCircle, Globe, MapPin, Sparkles, Instagram } from "lucide-react";
+import { PHONE_DISPLAY, TEL_LINK, WHATSAPP_LINK, WEBSITE, ADDRESS, MAPS_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/utils";
 import {
   FadeIn,
   StaggerContainer,
@@ -92,6 +92,44 @@ export default function ContactPage() {
                       <div>
                         <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">Website</p>
                         <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">{WEBSITE}</p>
+                      </div>
+                    </a>
+                  </HoverCard>
+                </StaggerItem>
+                <StaggerItem>
+                  <HoverCard lift={-3}>
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all"
+                    >
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 transition-colors group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-rose-500 group-hover:to-purple-600 group-hover:text-white">
+                        <Instagram className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">Instagram</p>
+                        <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">@xoratechnologies</p>
+                      </div>
+                    </a>
+                  </HoverCard>
+                </StaggerItem>
+                <StaggerItem>
+                  <HoverCard lift={-3}>
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-4 rounded-2xl border border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md p-5 shadow-card transition-all"
+                    >
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0A66C2]/10 dark:bg-[#0A66C2]/20 text-[#0A66C2] dark:text-cyan-400 transition-colors group-hover:bg-[#0A66C2] group-hover:text-white">
+                        <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-navy-400 dark:text-navy-500">LinkedIn</p>
+                        <p className="mt-0.5 text-base font-semibold text-navy-900 dark:text-white">linkedin.com/in/xoratech</p>
                       </div>
                     </a>
                   </HoverCard>
