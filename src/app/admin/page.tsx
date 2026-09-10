@@ -42,15 +42,15 @@ export default function AdminPage() {
       });
 
       if (error) {
-        // Fallback for admin demo/local access
-        window.location.href = "/admin/dashboard";
-      } else {
-        window.location.href = "/admin/dashboard";
+        setLoading(false);
+        setGeneralError(error.message || "Invalid credentials. Please try again.");
+        return;
       }
-    } catch {
       window.location.href = "/admin/dashboard";
+    } catch {
+      setLoading(false);
+      setGeneralError("Unable to connect. Please try again later.");
     }
-    setLoading(false);
   };
 
   return (

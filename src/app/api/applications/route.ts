@@ -61,6 +61,10 @@ export async function POST(request: NextRequest) {
         const { data, error } = await supabase.from("applications").insert([applicationRecord]).select().single();
         if (error) {
           console.error("Supabase applications API insert error:", error);
+          return NextResponse.json(
+            { success: false, error: "Failed to save application to database." },
+            { status: 500 }
+          );
         } else if (data) {
           return NextResponse.json(
             { success: true, message: "Application submitted successfully!", data },
@@ -69,6 +73,10 @@ export async function POST(request: NextRequest) {
         }
       } catch (dbErr) {
         console.error("Database error during application insertion:", dbErr);
+        return NextResponse.json(
+          { success: false, error: "Database connection error." },
+          { status: 500 }
+        );
       }
     }
 

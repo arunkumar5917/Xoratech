@@ -61,14 +61,14 @@ export async function submitApplication(input: ApplicationInput): Promise<Action
 
     if (error) {
       console.error("Supabase application insert error:", error);
-      return { success: true, message: "Application submitted successfully.", data: { application_id: applicationId } };
+      return { success: false, message: "Failed to save application. Please try again." };
     }
 
     revalidatePath("/student/dashboard");
     return { success: true, message: "Application submitted successfully.", data: { application_id: applicationId } };
   } catch (err) {
     console.error("Application submission error:", err);
-    return { success: true, message: "Application submitted successfully.", data: { application_id: applicationId } };
+    return { success: false, message: "An error occurred while submitting your application." };
   }
 }
 
@@ -82,12 +82,12 @@ export async function submitEnquiry(input: EnquiryInput): Promise<ActionResult> 
     const { error } = await client.from("enquiries").insert([input]);
     if (error) {
       console.error("Supabase enquiry insert error:", error);
-      return { success: true, message: "Your enquiry has been received! Our team will contact you shortly." };
+      return { success: false, message: "Failed to send enquiry. Please try again." };
     }
     return { success: true, message: "Your enquiry has been sent. We will get back to you shortly." };
   } catch (err) {
     console.error("Enquiry submission error:", err);
-    return { success: true, message: "Your enquiry has been received! Our team will contact you shortly." };
+    return { success: false, message: "An error occurred while sending your enquiry." };
   }
 }
 

@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Phone, Globe, ArrowUpRight } from "lucide-react";
 import { LogoSvg } from "@/components/Logo";
+import { FadeIn } from "@/components/animations/FadeIn";
+import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
 import { APP_NAME, APP_TAGLINE, PHONE_DISPLAY, TEL_LINK, WEBSITE } from "@/lib/utils";
 
 const BUSINESS_LINKS = [
@@ -31,10 +35,10 @@ function FooterLink({ href, children, external }: { href: string; children: Reac
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-1 text-sm text-navy-300 transition-colors hover:text-white"
+        className="group inline-flex items-center gap-1 text-sm text-navy-300 transition-all duration-200 hover:text-white hover:translate-x-1"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
-        {children}
+        <span>{children}</span>
         {external && <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />}
       </Link>
     </li>
@@ -43,15 +47,15 @@ function FooterLink({ href, children, external }: { href: string; children: Reac
 
 export function Footer() {
   return (
-    <footer className="bg-navy-950 text-white">
+    <footer className="relative overflow-hidden bg-navy-950 text-white">
       <div className="container-x py-16 lg:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+        <StaggerContainer staggerDelay={0.08} className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <span className="inline-flex items-center rounded-xl bg-white px-3 py-2">
+          <StaggerItem className="lg:col-span-2">
+            <span className="inline-flex items-center rounded-xl bg-white px-3 py-2 shadow-card">
               <LogoSvg className="h-9" />
             </span>
-            <p className="mt-1 text-sm font-semibold text-xora-400">{APP_TAGLINE}</p>
+            <p className="mt-2 text-sm font-semibold text-xora-400">{APP_TAGLINE}</p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-300">
               Building digital solutions for businesses and creating meaningful learning
               opportunities for students.
@@ -59,58 +63,63 @@ export function Footer() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href={TEL_LINK}
-                className="inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"
               >
-                <Phone className="h-4 w-4 text-xora-400" />
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 transition-transform duration-200 group-hover:scale-110">
+                  <Phone className="h-3.5 w-3.5 text-xora-400" />
+                </span>
                 {PHONE_DISPLAY}
               </a>
               <a
                 href={`https://${WEBSITE}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 text-sm text-navy-300 transition-colors hover:text-white"
               >
-                <Globe className="h-4 w-4 text-xora-400" />
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 transition-transform duration-200 group-hover:scale-110">
+                  <Globe className="h-3.5 w-3.5 text-xora-400" />
+                </span>
                 {WEBSITE}
               </a>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Business */}
-          <div>
+          <StaggerItem>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Business</h4>
             <ul className="flex flex-col gap-2.5">
               {BUSINESS_LINKS.map((link) => (
                 <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* Students */}
-          <div>
+          <StaggerItem>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Students</h4>
             <ul className="flex flex-col gap-2.5">
               {STUDENT_LINKS.map((link) => (
                 <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* Company */}
-          <div>
+          <StaggerItem>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Company</h4>
             <ul className="flex flex-col gap-2.5">
               {COMPANY_LINKS.map((link) => (
                 <FooterLink key={link.label} href={link.href}>{link.label}</FooterLink>
               ))}
             </ul>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
 
-        <div className="mt-14 border-t border-white/10 pt-8 text-center text-sm text-navy-400">
+        <FadeIn delay={0.3} className="mt-14 border-t border-white/10 pt-8 text-center text-sm text-navy-400">
           <p>&copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.</p>
-        </div>
+        </FadeIn>
       </div>
     </footer>
   );
 }
+

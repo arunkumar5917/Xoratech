@@ -4,6 +4,9 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThreeDBackground } from "@/components/ui/ThreeDBackground";
+import { ScrollProgressBar } from "@/components/animations/ScrollProgressBar";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { OfflineStatusIndicator } from "@/components/ui/OfflineStatusIndicator";
 import { APP_NAME, WEBSITE_URL } from "@/lib/utils";
 
 const inter = Inter({
@@ -67,6 +70,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="relative flex min-h-screen flex-col bg-white text-navy-950 antialiased selection:bg-xora-500 selection:text-white">
+        <LoadingScreen />
+        <OfflineStatusIndicator />
+        <ScrollProgressBar />
         <ThreeDBackground />
         <Header />
         <main className="flex-1">{children}</main>
@@ -75,3 +81,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+

@@ -42,14 +42,15 @@ export default function StaffPage() {
       });
 
       if (error) {
-        window.location.href = "/staff/dashboard";
-      } else {
-        window.location.href = "/staff/dashboard";
+        setLoading(false);
+        setGeneralError(error.message || "Invalid credentials. Please try again.");
+        return;
       }
-    } catch {
       window.location.href = "/staff/dashboard";
+    } catch {
+      setLoading(false);
+      setGeneralError("Unable to connect. Please try again later.");
     }
-    setLoading(false);
   };
 
   return (

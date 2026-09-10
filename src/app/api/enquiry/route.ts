@@ -40,6 +40,10 @@ export async function POST(request: NextRequest) {
         const { data, error } = await supabase.from("enquiries").insert([enquiryRecord]).select().single();
         if (error) {
           console.error("Supabase enquiry API insert error:", error);
+          return NextResponse.json(
+            { success: false, error: "Failed to save enquiry to database." },
+            { status: 500 }
+          );
         } else if (data) {
           return NextResponse.json(
             { success: true, message: "Enquiry submitted successfully!", data },
@@ -48,6 +52,10 @@ export async function POST(request: NextRequest) {
         }
       } catch (dbErr) {
         console.error("Database connection error during enquiry insertion:", dbErr);
+        return NextResponse.json(
+          { success: false, error: "Database connection error." },
+          { status: 500 }
+        );
       }
     }
 

@@ -29,7 +29,10 @@ export async function POST(request: NextRequest) {
     if (isSupabaseConfigured) {
       try {
         const supabase = createServerClient();
-        await supabase.from("enquiries").insert([contactRecord]);
+        const { error } = await supabase.from("enquiries").insert([contactRecord]);
+        if (error) {
+          console.error("Supabase contact API insert error:", error);
+        }
       } catch (err) {
         console.error("Database error saving contact record:", err);
       }

@@ -44,15 +44,15 @@ export default function StudentLoginPage() {
       });
 
       if (error) {
-        // Fallback for student demo access
-        window.location.href = "/student/dashboard";
-      } else {
-        window.location.href = "/student/dashboard";
+        setLoading(false);
+        setGeneralError(error.message || "Invalid email or password. Please try again.");
+        return;
       }
-    } catch {
       window.location.href = "/student/dashboard";
+    } catch {
+      setLoading(false);
+      setGeneralError("Unable to connect. Please try again later.");
     }
-    setLoading(false);
   };
 
   return (

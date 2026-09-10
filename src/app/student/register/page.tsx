@@ -52,14 +52,15 @@ export default function StudentRegisterPage() {
       });
 
       if (error) {
-        window.location.href = "/student/dashboard";
-      } else {
-        window.location.href = "/student/dashboard";
+        setLoading(false);
+        setGeneralError(error.message || "Registration failed. Please try again.");
+        return;
       }
-    } catch {
       window.location.href = "/student/dashboard";
+    } catch {
+      setLoading(false);
+      setGeneralError("Unable to connect. Please try again later.");
     }
-    setLoading(false);
   };
 
   return (
