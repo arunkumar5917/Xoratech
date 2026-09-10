@@ -572,7 +572,14 @@ export default function HomePage() {
                     +91 98942 79003
                   </a>
                   <span className="text-navy-400">·</span>
-                  <span>www.xoratech.in</span>
+                  <a
+                    href="https://www.xoratechnologies.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    www.xoratechnologies.in
+                  </a>
                 </div>
               </div>
             </div>
