@@ -122,24 +122,24 @@ export function HelpFaqModal() {
         }}
         title="Frequently Asked Questions & Doubts"
         aria-label="Frequently Asked Questions and Help"
-        className="relative group flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-navy-200/80 bg-white/95 text-navy-700 shadow-sm backdrop-blur-md transition-all duration-200 hover:border-xora-500 hover:bg-white hover:text-xora-600 hover:shadow-md hover:scale-105 active:scale-95 dark:border-navy-700 dark:bg-navy-900/90 dark:text-navy-200 dark:hover:border-xora-400 dark:hover:text-white"
+        className="relative group flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-navy-200/90 bg-white text-navy-800 shadow-sm backdrop-blur-md transition-all duration-200 hover:border-xora-500 hover:bg-xora-50/50 hover:text-xora-600 hover:shadow-md hover:scale-105 active:scale-95 dark:border-navy-700 dark:bg-navy-900 dark:text-navy-100 dark:hover:border-xora-400 dark:hover:bg-navy-800"
       >
         <span className="font-display text-base font-bold text-xora-600 group-hover:scale-110 transition-transform">
           ?
         </span>
 
         {/* Pulsing indicator dot */}
-        <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
+        <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-xora-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-xora-500 ring-2 ring-white dark:ring-navy-950" />
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-xora-500 ring-2 ring-white dark:ring-navy-950" />
         </span>
       </button>
 
-      {/* FULL MODAL OVERLAY - DROPPED DOWN FROM TOP NAVIGATION BAR */}
+      {/* FULL MODAL OVERLAY & SLIDE-DOWN DRAWER */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-3 pt-20 pb-8 sm:px-6 sm:pt-24">
-            {/* Backdrop with quick click-to-close */}
+          <div className="fixed inset-0 z-[100] flex flex-col items-center justify-start overflow-y-auto px-3 pt-20 pb-6 sm:px-6 sm:pt-24">
+            {/* Dark Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -149,16 +149,16 @@ export function HelpFaqModal() {
               className="fixed inset-0 bg-navy-950/70 backdrop-blur-md"
             />
 
-            {/* Modal Box - Dropped down smoothly */}
+            {/* Modal Dialog appearing from top navigation bar and moving slightly down */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: -24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: -20 }}
               transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 flex w-full max-w-3xl flex-col max-h-[82vh] overflow-hidden rounded-3xl border border-navy-100/90 bg-white shadow-2xl dark:border-navy-800 dark:bg-navy-950"
+              className="relative z-10 flex flex-col w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-3xl border border-navy-100 bg-white shadow-2xl dark:border-navy-800 dark:bg-navy-950"
             >
               {/* Header */}
-              <div className="relative border-b border-navy-100 bg-gradient-to-r from-navy-50/90 via-white to-xora-50/40 p-5 sm:p-6 dark:border-navy-800 dark:from-navy-900 dark:via-navy-950 dark:to-xora-950/20">
+              <div className="relative border-b border-navy-100 bg-gradient-to-r from-navy-50/80 via-white to-xora-50/40 p-5 sm:p-6 dark:border-navy-800 dark:from-navy-900 dark:via-navy-950 dark:to-xora-950/20">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-xora-gradient text-white shadow-glow">
@@ -176,12 +176,11 @@ export function HelpFaqModal() {
                     </div>
                   </div>
 
-                  {/* Top-Right Prominent Close Button */}
+                  {/* PROMINENT CLOSE BUTTON */}
                   <button
-                    type="button"
                     onClick={() => setIsOpen(false)}
-                    aria-label="Close FAQ window"
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-navy-200 bg-white px-3 py-1.5 text-xs font-semibold text-navy-700 shadow-sm transition-all hover:bg-rose-50 hover:text-rose-600 hover:border-rose-300 active:scale-95 dark:border-navy-700 dark:bg-navy-900 dark:text-navy-300 dark:hover:bg-rose-950/40 dark:hover:text-rose-300"
+                    aria-label="Close FAQs and Doubts Box"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-navy-200/90 bg-white px-3 py-1.5 text-xs font-semibold text-navy-700 shadow-sm transition-all hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 active:scale-95 dark:border-navy-700 dark:bg-navy-900 dark:text-navy-200 dark:hover:border-rose-800 dark:hover:bg-rose-950/50 dark:hover:text-rose-300"
                   >
                     <X className="h-4 w-4" />
                     <span>Close</span>
@@ -463,10 +462,10 @@ export function HelpFaqModal() {
                 )}
               </div>
 
-              {/* Footer Bar with Support Info and Close Button */}
+              {/* Footer Quick Reach Bar with Close Button */}
               <div className="border-t border-navy-100 bg-navy-50/70 p-3.5 sm:px-6 dark:border-navy-800 dark:bg-navy-900/60 flex flex-wrap items-center justify-between gap-3 text-[11px] text-navy-500 dark:text-navy-400">
                 <div className="flex items-center gap-3">
-                  <span className="font-semibold text-navy-700 dark:text-navy-300">Need immediate help?</span>
+                  <span className="font-semibold text-navy-700 dark:text-navy-300">Need direct help?</span>
                   <a href={TEL_LINK} className="inline-flex items-center gap-1 hover:text-xora-600 dark:hover:text-white">
                     <Phone className="h-3 w-3 text-xora-500" />
                     <span>{PHONE_DISPLAY}</span>
@@ -480,12 +479,10 @@ export function HelpFaqModal() {
 
                 <div className="flex items-center gap-2">
                   <button
-                    type="button"
                     onClick={() => setIsOpen(false)}
-                    className="inline-flex items-center gap-1 rounded-lg border border-navy-200 bg-white px-3 py-1 font-semibold text-navy-700 shadow-sm transition-colors hover:bg-navy-50 hover:text-navy-900 dark:border-navy-700 dark:bg-navy-800 dark:text-navy-200 dark:hover:bg-navy-700"
+                    className="rounded-lg border border-navy-200 bg-white px-3 py-1 font-semibold text-navy-700 hover:bg-navy-100 dark:border-navy-700 dark:bg-navy-900 dark:text-navy-300"
                   >
-                    <X className="h-3 w-3" />
-                    <span>Close Window</span>
+                    Close Window
                   </button>
                 </div>
               </div>
