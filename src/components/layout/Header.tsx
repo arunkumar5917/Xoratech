@@ -85,9 +85,8 @@ export function Header() {
             })}
           </ul>
 
-          {/* Desktop CTA & Help/FAQ */}
-          <div className="hidden items-center gap-2.5 lg:flex">
-            <HelpFaqModal />
+          {/* Desktop CTA & Corner Help/FAQ */}
+          <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/verify-certificate"
               className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs sm:text-sm font-medium text-navy-600 transition-all duration-200 hover:bg-navy-50 hover:text-navy-900 hover:-translate-y-0.5 dark:text-navy-300 dark:hover:bg-navy-900 dark:hover:text-white"
@@ -102,11 +101,14 @@ export function Header() {
               <span>Apply Now</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
+            {/* Far right corner question mark button */}
+            <div className="pl-1">
+              <HelpFaqModal />
+            </div>
           </div>
 
-          {/* Mobile Actions: Help/FAQ & Menu Button */}
+          {/* Mobile Actions: Menu Button & Corner Question Symbol */}
           <div className="flex items-center gap-2 lg:hidden">
-            <HelpFaqModal />
             <button
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-50/80 text-navy-800 transition-transform active:scale-95 dark:bg-navy-900 dark:text-navy-200"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -115,6 +117,7 @@ export function Header() {
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
+            <HelpFaqModal />
           </div>
         </nav>
       </div>

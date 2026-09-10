@@ -114,25 +114,25 @@ export function HelpFaqModal() {
 
   return (
     <>
-      {/* TRIGGER BUTTON IN NAVIGATION BAR */}
+      {/* TRIGGER BUTTON IN NAVIGATION BAR - QUESTION MARK SYMBOL ONLY */}
       <button
         type="button"
         onClick={() => {
           setIsOpen(true);
           setIsSubmitted(false);
         }}
+        title="Frequently Asked Questions & Doubts"
         aria-label="Frequently Asked Questions and Help"
-        className="relative group inline-flex items-center gap-1.5 rounded-xl border border-navy-100 bg-white/90 px-3 py-2 text-xs font-semibold text-navy-700 shadow-sm backdrop-blur-md transition-all duration-200 hover:border-xora-400 hover:bg-white hover:text-xora-600 hover:shadow-md active:scale-95 dark:border-navy-800 dark:bg-navy-900/90 dark:text-navy-200 dark:hover:border-xora-500 dark:hover:text-white"
+        className="relative group flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-navy-200/80 bg-white/95 text-navy-700 shadow-sm backdrop-blur-md transition-all duration-200 hover:border-xora-500 hover:bg-white hover:text-xora-600 hover:shadow-md hover:scale-105 active:scale-95 dark:border-navy-700 dark:bg-navy-900/90 dark:text-navy-200 dark:hover:border-xora-400 dark:hover:text-white"
       >
-        <span className="flex h-5 w-5 items-center justify-center rounded-lg bg-xora-50 text-xora-600 dark:bg-xora-950/70 dark:text-xora-400 group-hover:bg-xora-gradient group-hover:text-white transition-colors">
-          <HelpCircle className="h-3.5 w-3.5" />
+        <span className="font-display text-base font-bold text-xora-600 group-hover:scale-110 transition-transform">
+          ?
         </span>
-        <span className="hidden sm:inline">FAQs & Doubts</span>
 
         {/* Pulsing indicator dot */}
-        <span className="relative flex h-2 w-2">
+        <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-xora-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-xora-500" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-xora-500 ring-2 ring-white dark:ring-navy-950" />
         </span>
       </button>
 
